@@ -1,9 +1,0 @@
-import textstat
-
-class ReadabilityAnalyzer:
-    def analyze_text(self, text):
-        return {
-            'FleschReadingEase': textstat.flesch_reading_ease(text),
-            'FleschKincaidGrade': textstat.flesch_kincaid_grade(text),
-            'GunningFogIndex': textstat.gunning_fog(text)
-        }

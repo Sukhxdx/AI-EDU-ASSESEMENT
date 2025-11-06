@@ -1,9 +1,0 @@
-| File Name                | Function                                                     |
-| ------------------------ | ------------------------------------------------------------ |
-| `quiz_generator.py`      | Generates AI-based quiz questions from text using T5-small   |
-| `readability.py`         | Calculates readability metrics like Flesch, Fog index        |
-| `glossary.py`            | Extracts keywords & builds multilingual glossary             |
-| `translator_backends.py` | (Optional) Handles advanced translation using MarianMT       |
-| `pdf_utils.py`           | Extracts text from uploaded PDFs                             |
-| `db.py`                  | Stores all session data (quiz, glossary, analysis) in SQLite |
-| `__init__.py`            | Empty file — just required by Python for imports             |

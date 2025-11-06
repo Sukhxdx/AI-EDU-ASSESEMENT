@@ -1,0 +1,23 @@
+{
+  "name": "ai-edu-assessment-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
+  },
+  "dependencies": {
+    "@react-native-community/cli-server-api": "^15.0.0",
+    "@types/react": "~19.1.10",
+    "expo": "~54.0.0",
+    "expo-status-bar": "~3.0.8",
+    "react": "19.1.0",
+    "react-native": "0.81.5",
+    "typescript": "~5.9.2"
+  },
+  "devDependencies": {
+    "babel-preset-expo": "~54.0.0"
+  }
+}

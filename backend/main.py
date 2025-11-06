@@ -4,11 +4,16 @@ from pydantic import BaseModel
 from typing import Optional, List, Dict, Any
 import os
 
+import os as _os
+from dotenv import load_dotenv
+load_dotenv(dotenv_path=_os.path.join(_os.path.dirname(__file__), ".env"), override=False)
+
 from modules.readability import ReadabilityAnalyzer
 from modules.glossary import GlossaryBuilder
 from modules.quiz_generator import QuizGenerator
 from modules.pdf_utils import extract_text_from_pdf
 from modules.db import Database
+from modules.rag import RAGPipeline
 
 
 class AnalyzeRequest(BaseModel):
@@ -42,6 +47,7 @@ qg = QuizGenerator()
 ra = ReadabilityAnalyzer()
 gb = GlossaryBuilder()
 db = Database(os.getenv("DB_PATH", "data/projects.db"))
+rag = None
 
 
 @app.get("/health")
@@ -92,6 +98,59 @@ def load_session(session_id: int) -> Dict[str, Any]:
     if not data:
         raise HTTPException(status_code=404, detail="Session not found")
     return data
+
+
+# -------- RAG endpoints --------
+class IngestRequest(BaseModel):
+    pdf_url: str
+    index_name: Optional[str] = None
+
+
+class QueryRequest(BaseModel):
+    question: str
+    top_k: int = 5
+    index_name: Optional[str] = None
+
+
+def get_rag(index_name: Optional[str] = None) -> RAGPipeline:
+    # late init so missing envs fail only when used
+    return RAGPipeline(index_name=index_name)
+
+
+@app.post("/rag/ingest")
+def rag_ingest(body: IngestRequest) -> Dict[str, Any]:
+    try:
+        pipe = get_rag(body.index_name)
+        result = pipe.ingest_pdf(body.pdf_url)
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/rag/query")
+def rag_query(body: QueryRequest) -> Dict[str, Any]:
+    try:
+        pipe = get_rag(body.index_name)
+        result = pipe.query(body.question, top_k=body.top_k)
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+class QuizRequest(BaseModel):
+    num_questions: int = 5
+    topic: Optional[str] = None
+    index_name: Optional[str] = None
+
+
+@app.post("/rag/quiz")
+def rag_quiz(body: QuizRequest) -> Dict[str, Any]:
+    try:
+        pipe = get_rag(body.index_name)
+        questions = pipe.generate_quiz(num_questions=body.num_questions, topic=body.topic)
+        return {"questions": questions, "count": len(questions)}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 if __name__ == "__main__":
