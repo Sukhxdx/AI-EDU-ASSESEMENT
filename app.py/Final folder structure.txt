@@ -1,0 +1,18 @@
+AI_Edu_Assessment/
+│
+├── app.py
+├── requirements.txt
+│
+├── data/
+│   └── projects.db                ← SQLite database (auto-created when app runs)
+│
+├── modules/
+│   ├── __init__.py                ← empty file (makes folder importable)
+│   ├── quiz_generator.py          ← quiz generation logic
+│   ├── readability.py             ← readability analysis logic
+│   ├── glossary.py                ← glossary building + translation
+│   ├── translator_backends.py     ← (optional) advanced translation logic
+│   ├── pdf_utils.py               ← for extracting text from uploaded PDFs
+│   └── db.py                      ← handles saving sessions in database
+│
+└── README.md                      ← short project description (optional)

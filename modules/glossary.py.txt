@@ -1,0 +1,20 @@
+from rake_nltk import Rake
+from googletrans import Translator
+
+class GlossaryBuilder:
+    def __init__(self):
+        self.r = Rake()
+        self.translator = Translator()
+
+    def build_glossary(self, text, target_lang='hi', top_k=10):
+        self.r.extract_keywords_from_text(text)
+        phrases = self.r.get_ranked_phrases()
+        phrases = [p for p in phrases if len(p.split()) <= 3]
+        glossary = {}
+        for phrase in phrases[:top_k]:
+            try:
+                trans = self.translator.translate(phrase, dest=target_lang).text
+            except:
+                trans = phrase
+            glossary[phrase] = trans
+        return glossary

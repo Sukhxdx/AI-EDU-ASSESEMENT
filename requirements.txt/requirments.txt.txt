@@ -1,0 +1,10 @@
+streamlit
+transformers
+torch
+textstat
+nltk
+rake-nltk
+googletrans==4.0.0-rc1
+sentencepiece
+sqlite-utils
+PyPDF2
