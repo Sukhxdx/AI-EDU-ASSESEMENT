@@ -1,8 +1,7 @@
 data/
-results/
 __pycache__/
 *.pyc
 .pytest_cache/
 .ipynb_checkpoints/
-*.pt
 .DS_Store
+results/*.pt
