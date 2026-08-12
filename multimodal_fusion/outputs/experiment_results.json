@@ -1,0 +1,120 @@
+{
+  "meta": {
+    "n_samples": 3000,
+    "n_train": 2100,
+    "n_val": 450,
+    "n_test": 450,
+    "vocab_size": 555,
+    "max_len": 32,
+    "num_classes": 2,
+    "class_names": [
+      "real",
+      "fake"
+    ],
+    "visual_source": "Programmatically synthesised class-discriminative RGB images (10 object categories)",
+    "text_source": "Curated news-style captions (matched / sensational / mismatched)",
+    "task": "Multimodal Fake News Detection (Image + Text Fusion)",
+    "seed": 42,
+    "pair_type_counts": {
+      "matched_real": 1500,
+      "mismatched_fake": 514,
+      "sensational_fake": 498,
+      "sensational_mismatch_fake": 488
+    }
+  },
+  "device": "cpu",
+  "epochs": 6,
+  "models": {
+    "image_only": {
+      "accuracy": 0.6288888888888889,
+      "precision": 0.6139705882352942,
+      "recall": 0.7292576419213974,
+      "f1": 0.6666666666666666,
+      "roc_auc": 0.7082929913651722,
+      "confusion_matrix": [
+        [
+          116,
+          105
+        ],
+        [
+          62,
+          167
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n        real       0.65      0.52      0.58       221\n        fake       0.61      0.73      0.67       229\n\n    accuracy                           0.63       450\n   macro avg       0.63      0.63      0.62       450\nweighted avg       0.63      0.63      0.62       450\n"
+    },
+    "text_only": {
+      "accuracy": 0.8177777777777778,
+      "precision": 1.0,
+      "recall": 0.6419213973799127,
+      "f1": 0.7819148936170213,
+      "roc_auc": 0.8045703333399199,
+      "confusion_matrix": [
+        [
+          221,
+          0
+        ],
+        [
+          82,
+          147
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n        real       0.73      1.00      0.84       221\n        fake       1.00      0.64      0.78       229\n\n    accuracy                           0.82       450\n   macro avg       0.86      0.82      0.81       450\nweighted avg       0.87      0.82      0.81       450\n"
+    },
+    "early_fusion": {
+      "accuracy": 0.9511111111111111,
+      "precision": 1.0,
+      "recall": 0.9039301310043668,
+      "f1": 0.9495412844036697,
+      "roc_auc": 0.9781659388646289,
+      "confusion_matrix": [
+        [
+          221,
+          0
+        ],
+        [
+          22,
+          207
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n        real       0.91      1.00      0.95       221\n        fake       1.00      0.90      0.95       229\n\n    accuracy                           0.95       450\n   macro avg       0.95      0.95      0.95       450\nweighted avg       0.96      0.95      0.95       450\n"
+    },
+    "late_fusion": {
+      "accuracy": 0.8288888888888889,
+      "precision": 0.9871794871794872,
+      "recall": 0.6724890829694323,
+      "f1": 0.8,
+      "roc_auc": 0.8865616787527909,
+      "confusion_matrix": [
+        [
+          219,
+          2
+        ],
+        [
+          75,
+          154
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n        real       0.74      0.99      0.85       221\n        fake       0.99      0.67      0.80       229\n\n    accuracy                           0.83       450\n   macro avg       0.87      0.83      0.83       450\nweighted avg       0.87      0.83      0.82       450\n"
+    },
+    "hybrid_fusion": {
+      "accuracy": 0.9422222222222222,
+      "precision": 1.0,
+      "recall": 0.8864628820960698,
+      "f1": 0.9398148148148148,
+      "roc_auc": 0.9646307968938331,
+      "confusion_matrix": [
+        [
+          221,
+          0
+        ],
+        [
+          26,
+          203
+        ]
+      ],
+      "classification_report": "              precision    recall  f1-score   support\n\n        real       0.89      1.00      0.94       221\n        fake       1.00      0.89      0.94       229\n\n    accuracy                           0.94       450\n   macro avg       0.95      0.94      0.94       450\nweighted avg       0.95      0.94      0.94       450\n"
+    }
+  },
+  "best_model": "early_fusion"
+}

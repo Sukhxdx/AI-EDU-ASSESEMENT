@@ -71,3 +71,6 @@ app.py/
 modules/
 requirements.txt/
 frontend/
+
+# Multimodal fusion trained weights (reproducible via run_experiment.py)
+multimodal_fusion/models/*.pt
