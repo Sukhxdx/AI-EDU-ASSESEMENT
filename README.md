@@ -2,6 +2,12 @@
 
 A comprehensive educational assessment platform that uses Retrieval-Augmented Generation (RAG) to generate quizzes and answer questions from PDF documents. Built with FastAPI backend and React Native mobile app.
 
+## Related project: Nifty 50 index tracking
+
+This repository also contains `nifty50_tracker/`, a sparse Nifty 50 replication
+study using an Index-Constrained Sparse Autoencoder (ICSAE). See
+[nifty50_tracker/README.md](./nifty50_tracker/README.md).
+
 ## 🎯 Features
 
 - **PDF Ingestion**: Upload and process research papers, textbooks, and educational documents
