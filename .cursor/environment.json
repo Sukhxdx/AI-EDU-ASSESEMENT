@@ -1,0 +1,20 @@
+{
+  "name": "AI Edu Assessment",
+  "install": "bash .cursor/install.sh",
+  "terminals": [
+    {
+      "name": "backend",
+      "command": "cd backend && . .venv/bin/activate && DB_PATH=data/projects.db uvicorn main:app --host 0.0.0.0 --port 8000",
+      "description": "FastAPI backend API. Serves http://localhost:8000 with interactive docs at /docs. RAG endpoints (/rag/*) need PINECONE_API_KEY (and optionally GEMINI_API_KEY); core /analyze endpoints work without any keys."
+    },
+    {
+      "name": "mobile",
+      "command": "cd mobile && EXPO_PUBLIC_BACKEND_URL=http://localhost:8000 npx expo start --port 8081",
+      "description": "Expo/Metro bundler for the React Native app. Scan the QR code with Expo Go or press a/i for an emulator."
+    }
+  ],
+  "ports": [
+    { "name": "backend", "port": 8000 },
+    { "name": "expo-metro", "port": 8081 }
+  ]
+}
