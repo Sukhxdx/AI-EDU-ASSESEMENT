@@ -4,7 +4,8 @@
 
 ## Deliverable
 
-`Pushpak_V1_Tilt_Rotor_VTOL_UAV_Design_Review.pptx` — widescreen 16:9, dark aerospace design-review language.
+- `Pushpak_V1_Tilt_Rotor_VTOL_UAV_Design_Review.pdf` — **use this on Mac** (Preview / Safari)
+- `Pushpak_V1_Tilt_Rotor_VTOL_UAV_Design_Review.pptx` — widescreen 16:9 (needs Microsoft PowerPoint or Keynote; Preview cannot open `.pptx`)
 
 Team on the title and close slides:
 
