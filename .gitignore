@@ -66,8 +66,8 @@ Thumbs.db
 .ipynb_checkpoints/
 *.ipynb
 
-# Old/unused files
-app.py/
-modules/
-requirements.txt/
-frontend/
+# Old/unused files (root-level legacy layout only; do not ignore backend/modules)
+/app.py
+/modules/
+/requirements.txt
+/frontend/
