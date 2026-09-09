@@ -7,21 +7,16 @@ This document provides an index to all development reports for the AI Edu Assess
 
 ## Available Reports
 
-### 0. PBL Mini Project Report (group submission)
-**PDF (for download / LMS upload)**: [../downloads/PBL_Mini_Project_Report.pdf](../downloads/PBL_Mini_Project_Report.pdf)
+### 0. B.Tech Project Monthly Progress Report (September 2026)
+**PDF (download)**: [../downloads/BTech_Project_Monthly_Progress_Report_September_2026.pdf](../downloads/BTech_Project_Monthly_Progress_Report_September_2026.pdf)
 
-**Word source**: [PBL_Mini_Project_Report.docx](./PBL_Mini_Project_Report.docx)
+**Word source**: [BTech_Project_Monthly_Progress_Report_September_2026.docx](./BTech_Project_Monthly_Progress_Report_September_2026.docx)
 
-**Contents** (PBL proposal format):
-- Cover page with group number, member names and PRN fields
-- Problem statement, motivation and SMART objectives
-- Literature review of 12 papers with comparison table
-- Proposed methodology (RAG ingest, query, quiz, readability, mobile)
-- Sixteen-week timeline and declaration annexure
+CA-4 monthly progress format (same section order as the department sample). Topic: multimodal image–text fake news detection using early, late and hybrid fusion. Group: Sukhada Dhingra, Dipti Kothari, Khurinji Malar, Akhil.
 
 **How to regenerate** (optional):
 ```
-python3 scripts/generate_pbl_report.py
+python3 scripts/generate_mai_progress_report.py
 ```
 
 ---

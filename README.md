@@ -103,7 +103,7 @@ AI_Edu_Assessment/
 
 ## 📚 Documentation
 
-The PBL mini-project report is in [downloads/PBL_Mini_Project_Report.pdf](./downloads/PBL_Mini_Project_Report.pdf) (Word source: [documentation/PBL_Mini_Project_Report.docx](./documentation/PBL_Mini_Project_Report.docx)). Fill Group Number and PRNs before submitting.
+The B.Tech monthly progress report (CA-4 format, multimodal image–text fusion) is in [downloads/BTech_Project_Monthly_Progress_Report_September_2026.pdf](./downloads/BTech_Project_Monthly_Progress_Report_September_2026.pdf). Fill remaining PRNs on the cover before submitting.
 
 See the [documentation/](./documentation/) folder for detailed information:
 
