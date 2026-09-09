@@ -7,6 +7,19 @@ This document provides an index to all development reports for the AI Edu Assess
 
 ## Available Reports
 
+### 0. Multimodal AI Technical Report (Wildfire Detection)
+**File**: [multimodal_report/EMBER_Net_Multimodal_AI_Wildfire_Report.pdf](./multimodal_report/EMBER_Net_Multimodal_AI_Wildfire_Report.pdf)
+
+**Contents**:
+- Problem statement: early wildfire detection and emergency response
+- EMBER-Net hybrid multimodal architecture
+- Modalities: text, image, audio, and video
+- Inputs/outputs, fusion method, step-by-step workflow
+- Advantages, limitations, and real-world references (Pano AI, ALERTCalifornia, FireSat)
+
+---
+
+
 ### 1. Mobile Development Report
 **File**: [MOBILE_DEVELOPMENT_REPORT.md](./MOBILE_DEVELOPMENT_REPORT.md)
 
