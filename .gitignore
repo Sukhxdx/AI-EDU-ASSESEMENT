@@ -31,6 +31,7 @@ data/*.db
 experiential-learning/hadoop-mapreduce/work/*.class
 experiential-learning/hadoop-mapreduce/work/*.jar
 experiential-learning/hadoop-mapreduce/work/logs/
+experiential-learning/hadoop-mapreduce/work/**/*.crc
 
 # Node
 node_modules/
