@@ -8,7 +8,9 @@ This document provides an index to all development reports for the AI Edu Assess
 ## Available Reports
 
 ### 0. PBL Mini Project Report (group submission)
-**File**: [PBL_Mini_Project_Report.docx](./PBL_Mini_Project_Report.docx)
+**PDF (for download / LMS upload)**: [../downloads/PBL_Mini_Project_Report.pdf](../downloads/PBL_Mini_Project_Report.pdf)
+
+**Word source**: [PBL_Mini_Project_Report.docx](./PBL_Mini_Project_Report.docx)
 
 **Contents** (PBL proposal format):
 - Cover page with group number, member names and PRN fields
