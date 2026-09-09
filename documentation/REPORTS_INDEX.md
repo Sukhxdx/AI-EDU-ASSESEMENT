@@ -7,6 +7,23 @@ This document provides an index to all development reports for the AI Edu Assess
 
 ## Available Reports
 
+### 0. PBL Mini Project Report (group submission)
+**File**: [PBL_Mini_Project_Report.docx](./PBL_Mini_Project_Report.docx)
+
+**Contents** (PBL proposal format):
+- Cover page with group number, member names and PRN fields
+- Problem statement, motivation and SMART objectives
+- Literature review of 12 papers with comparison table
+- Proposed methodology (RAG ingest, query, quiz, readability, mobile)
+- Sixteen-week timeline and declaration annexure
+
+**How to regenerate** (optional):
+```
+python3 scripts/generate_pbl_report.py
+```
+
+---
+
 ### 1. Mobile Development Report
 **File**: [MOBILE_DEVELOPMENT_REPORT.md](./MOBILE_DEVELOPMENT_REPORT.md)
 

@@ -103,6 +103,8 @@ AI_Edu_Assessment/
 
 ## 📚 Documentation
 
+The PBL mini-project report (problem statement, motivation, objectives, literature review, methodology and timeline) is in [documentation/PBL_Mini_Project_Report.docx](./documentation/PBL_Mini_Project_Report.docx). Fill Group Number and PRNs on the cover page before submitting.
+
 See the [documentation/](./documentation/) folder for detailed information:
 
 - [Architecture Overview](./documentation/ARCHITECTURE.md)
