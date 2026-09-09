@@ -12,7 +12,7 @@ This document provides an index to all development reports for the AI Edu Assess
 
 **Word source**: [BTech_Project_Monthly_Progress_Report_September_2026.docx](./BTech_Project_Monthly_Progress_Report_September_2026.docx)
 
-CA-4 monthly progress format (same section order as the department sample). Topic: multimodal image–text fake news detection using early, late and hybrid fusion. Group: Sukhada Dhingra, Dipti Kothari, Khurinji Malar, Akhil.
+CA-4 monthly progress format. Topic: multimodal image–text fake news detection. Semester VII. Internal guide: Dr. Nivedita Mishra. Group: Sukhada Dhingra (24070126505), Dipti Kothari (23070126040), Khurinji Malar (23070126059), Akhil Chivukula (26070126009).
 
 **How to regenerate** (optional):
 ```

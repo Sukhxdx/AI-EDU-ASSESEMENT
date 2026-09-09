@@ -171,45 +171,26 @@ def build():
     center(doc, "Project ID: ________", size=12, bold=True, space_after=10, space_before=8)
     center(doc, "B. Tech. Project", size=16, bold=True, space_after=10)
     center(doc, "“Multimodal Fusion Framework for Image–Text Fake News Detection”", size=16, bold=True, space_after=12)
-    center(doc, "Monthly Progress Report – September 2026", size=14, bold=True, space_after=16)
-    center(doc, "Under the Guidance of", size=12, italic=True, space_after=10)
+    center(doc, "Monthly Progress Report – September 2026", size=14, bold=True, space_after=8)
+    center(doc, "Semester VII  |  B.Tech. (Artificial Intelligence and Machine Learning)", size=12, bold=True, space_after=16)
+    center(doc, "Under the Guidance of", size=12, italic=True, space_after=8)
+    center(doc, "Dr. Nivedita Mishra", size=14, bold=True, space_after=2)
+    center(doc, "(Internal Guide)", size=11, italic=True, space_after=14)
 
-    g = doc.add_table(rows=2, cols=2)
-    g.alignment = WD_TABLE_ALIGNMENT.CENTER
-    g.rows[0].cells[0].text = ""
-    g.rows[0].cells[1].text = ""
-    p = g.rows[0].cells[0].paragraphs[0]
-    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = p.add_run("Dr. Sheetal Borhade")
-    set_run_font(run, size=12, bold=True)
-    p = g.rows[0].cells[1].paragraphs[0]
-    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = p.add_run("Dr. Zulfikar Ali Ansari")
-    set_run_font(run, size=12, bold=True)
-    p = g.rows[1].cells[0].paragraphs[0]
-    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = p.add_run("(Name & sign of the Co-guide)")
-    set_run_font(run, size=10, italic=True)
-    p = g.rows[1].cells[1].paragraphs[0]
-    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = p.add_run("(Name & sign of the Guide)")
-    set_run_font(run, size=10, italic=True)
-
-    center(doc, "Group Members", size=13, bold=True, space_before=18, space_after=8)
+    center(doc, "Group Members", size=13, bold=True, space_before=8, space_after=8)
     add_table(
         doc,
-        ["Name of the Student", "PRN"],
+        ["Sr. No.", "Name of the Student", "PRN"],
         [
-            ["Sukhada Dhingra", "24070126505"],
-            ["Dipti Kothari", "23070126040"],
-            ["Khurinji Malar", "________________"],
-            ["Akhil", "________________"],
+            ["1", "Sukhada Dhingra", "24070126505"],
+            ["2", "Dipti Kothari", "23070126040"],
+            ["3", "Khurinji Malar", "23070126059"],
+            ["4", "Akhil Chivukula", "26070126009"],
         ],
-        col_widths=[9.0, 7.0],
+        col_widths=[2.5, 7.5, 6.0],
         font=11,
     )
-    center(doc, "Khurinji Malar and Akhil: fill PRN before final upload.", size=10, italic=True, space_before=6, space_after=16)
-    center(doc, "DEPARTMENT OF ARTIFICIAL INTELLIGENCE & MACHINE LEARNING", size=12, bold=True, space_before=10)
+    center(doc, "DEPARTMENT OF ARTIFICIAL INTELLIGENCE & MACHINE LEARNING", size=12, bold=True, space_before=18)
     center(doc, "Symbiosis Institute of Technology, Pune", size=12, space_after=4)
     center(doc, "Symbiosis International (Deemed University)", size=12, space_after=4)
     center(doc, "Academic Year 2026–27", size=12, bold=True, space_after=8)
@@ -265,12 +246,12 @@ def build():
                 "Early fusion (concat + MLP), late fusion (average of class probabilities), hybrid fusion (learnable gates + concat); comparison against unimodal baselines.",
             ],
             [
-                "Khurinji Malar\nPRN ________",
+                "Khurinji Malar\nPRN 23070126059",
                 "Image modality",
                 "CNN image encoder; image preprocessing; class-discriminative visual samples; confusion-matrix and training-curve plots for the vision path.",
             ],
             [
-                "Akhil\nPRN ________",
+                "Akhil Chivukula\nPRN 26070126009",
                 "Text modality and evaluation",
                 "BiGRU text encoder; vocabulary and padding; accuracy, precision, recall, F1 and ROC-AUC logging; train/val/test split and debugging of the training loop.",
             ],
@@ -290,7 +271,7 @@ def build():
     )
     para(
         doc,
-        "Our group is working on a controlled prototype for the Multimodal AI course / B.Tech. project. The task is binary: decide whether a post is REAL or FAKE using the image and the caption. REAL samples use a caption that matches the image. FAKE samples use a sensational caption, an image–text mismatch, or both. Five models are compared: image-only CNN, text-only BiGRU, early fusion, late fusion and hybrid fusion.",
+        "Our group is working on this as the Semester VII B.Tech. project in AIML, under the internal guidance of Dr. Nivedita Mishra. The task is binary: decide whether a post is REAL or FAKE using the image and the caption. REAL samples use a caption that matches the image. FAKE samples use a sensational caption, an image–text mismatch, or both. Five models are compared: image-only CNN, text-only BiGRU, early fusion, late fusion and hybrid fusion.",
     )
     para(
         doc,
@@ -696,8 +677,8 @@ def build():
     )
     para(doc, "Declaration. We, the members listed on the cover page, state that this monthly progress report is the work of our group. Sources are listed in APA in Section 16. One copy is submitted for the group.", indent=False, space_before=8)
     para(doc, "Date: _______________     Place: Pune", indent=False, space_before=10)
-    para(doc, "Sukhada Dhingra _____________     Dipti Kothari _____________", indent=False)
-    para(doc, "Khurinji Malar _____________     Akhil _____________", indent=False)
+    para(doc, "Sukhada Dhingra (24070126505) _____________     Dipti Kothari (23070126040) _____________", indent=False)
+    para(doc, "Khurinji Malar (23070126059) _____________     Akhil Chivukula (26070126009) _____________", indent=False)
 
     OUT_DOCX.parent.mkdir(parents=True, exist_ok=True)
     doc.save(OUT_DOCX)

@@ -103,7 +103,7 @@ AI_Edu_Assessment/
 
 ## 📚 Documentation
 
-The B.Tech monthly progress report (CA-4 format, multimodal image–text fusion) is in [downloads/BTech_Project_Monthly_Progress_Report_September_2026.pdf](./downloads/BTech_Project_Monthly_Progress_Report_September_2026.pdf). Fill remaining PRNs on the cover before submitting.
+The B.Tech Semester VII monthly progress report (CA-4 format, multimodal image–text fusion) is in [downloads/BTech_Project_Monthly_Progress_Report_September_2026.pdf](./downloads/BTech_Project_Monthly_Progress_Report_September_2026.pdf). Internal guide: Dr. Nivedita Mishra.
 
 See the [documentation/](./documentation/) folder for detailed information:
 
