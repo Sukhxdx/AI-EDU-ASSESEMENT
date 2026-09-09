@@ -1,0 +1,313 @@
+text,intent
+hello,greeting
+Hello?,greeting
+please hello,greeting
+hi there,greeting
+Hi there?,greeting
+please hi there,greeting
+good morning,greeting
+Good morning?,greeting
+please good morning,greeting
+hey nexus,greeting
+Hey nexus?,greeting
+please hey nexus,greeting
+namaste,greeting
+Namaste?,greeting
+please namaste,greeting
+"hi, I need help",greeting
+"Hi, i need help?",greeting
+"please hi, I need help",greeting
+hello bank,greeting
+Hello bank?,greeting
+please hello bank,greeting
+good evening,greeting
+Good evening?,greeting
+please good evening,greeting
+what is my account balance,balance_inquiry
+What is my account balance?,balance_inquiry
+please what is my account balance,balance_inquiry
+show savings balance,balance_inquiry
+Show savings balance?,balance_inquiry
+please show savings balance,balance_inquiry
+how much money do I have,balance_inquiry
+How much money do i have?,balance_inquiry
+please how much money do I have,balance_inquiry
+check ledger balance,balance_inquiry
+Check ledger balance?,balance_inquiry
+please check ledger balance,balance_inquiry
+current account balance please,balance_inquiry
+Current account balance please?,balance_inquiry
+please current account balance please,balance_inquiry
+available balance,balance_inquiry
+Available balance?,balance_inquiry
+please available balance,balance_inquiry
+tell me my balance,balance_inquiry
+Tell me my balance?,balance_inquiry
+please tell me my balance,balance_inquiry
+funds left in salary account,balance_inquiry
+Funds left in salary account?,balance_inquiry
+please funds left in salary account,balance_inquiry
+account balance,balance_inquiry
+Account balance?,balance_inquiry
+please account balance,balance_inquiry
+savings account balance,balance_inquiry
+Savings account balance?,balance_inquiry
+please savings account balance,balance_inquiry
+check my balance,balance_inquiry
+Check my balance?,balance_inquiry
+please check my balance,balance_inquiry
+send mini statement,mini_statement
+Send mini statement?,mini_statement
+please send mini statement,mini_statement
+last five transactions,mini_statement
+Last five transactions?,mini_statement
+please last five transactions,mini_statement
+recent debit list,mini_statement
+Recent debit list?,mini_statement
+please recent debit list,mini_statement
+sms mini statement,mini_statement
+Sms mini statement?,mini_statement
+please sms mini statement,mini_statement
+show last few spends,mini_statement
+Show last few spends?,mini_statement
+please show last few spends,mini_statement
+account mini statement please,mini_statement
+Account mini statement please?,mini_statement
+please account mini statement please,mini_statement
+how do I transfer money,fund_transfer
+How do i transfer money?,fund_transfer
+please how do I transfer money,fund_transfer
+send IMPS to beneficiary,fund_transfer
+Send imps to beneficiary?,fund_transfer
+please send IMPS to beneficiary,fund_transfer
+UPI limit today,fund_transfer
+Upi limit today?,fund_transfer
+please UPI limit today,fund_transfer
+NEFT timing,fund_transfer
+Neft timing?,fund_transfer
+please NEFT timing,fund_transfer
+add a new payee,fund_transfer
+Add a new payee?,fund_transfer
+please add a new payee,fund_transfer
+transfer to another bank,fund_transfer
+Transfer to another bank?,fund_transfer
+please transfer to another bank,fund_transfer
+how long does RTGS take,fund_transfer
+How long does rtgs take?,fund_transfer
+please how long does RTGS take,fund_transfer
+help with fund transfer,fund_transfer
+Help with fund transfer?,fund_transfer
+please help with fund transfer,fund_transfer
+block my debit card,card_block
+Block my debit card?,card_block
+please block my debit card,card_block
+hotlist lost card,card_block
+Hotlist lost card?,card_block
+please hotlist lost card,card_block
+freeze credit card now,card_block
+Freeze credit card now?,card_block
+please freeze credit card now,card_block
+my card is stolen please block,card_block
+My card is stolen please block?,card_block
+please my card is stolen please block,card_block
+disable card immediately,card_block
+Disable card immediately?,card_block
+please disable card immediately,card_block
+stop the card I lost my wallet,card_block
+Stop the card i lost my wallet?,card_block
+please stop the card I lost my wallet,card_block
+block card ending 4412,card_block
+Block card ending 4412?,card_block
+please block card ending 4412,card_block
+unblock my card,card_unblock
+Unblock my card?,card_unblock
+please unblock my card,card_unblock
+enable the debit card again,card_unblock
+Enable the debit card again?,card_unblock
+please enable the debit card again,card_unblock
+I found my card please activate,card_unblock
+I found my card please activate?,card_unblock
+please I found my card please activate,card_unblock
+remove temporary block,card_unblock
+Remove temporary block?,card_unblock
+please remove temporary block,card_unblock
+reactivate credit card,card_unblock
+Reactivate credit card?,card_unblock
+please reactivate credit card,card_unblock
+reset debit card pin,pin_reset
+Reset debit card pin?,pin_reset
+please reset debit card pin,pin_reset
+forgot ATM pin,pin_reset
+Forgot atm pin?,pin_reset
+please forgot ATM pin,pin_reset
+change card pin,pin_reset
+Change card pin?,pin_reset
+please change card pin,pin_reset
+generate new pin,pin_reset
+Generate new pin?,pin_reset
+please generate new pin,pin_reset
+pin is locked help,pin_reset
+Pin is locked help?,pin_reset
+please pin is locked help,pin_reset
+personal loan eligibility,loan_inquiry
+Personal loan eligibility?,loan_inquiry
+please personal loan eligibility,loan_inquiry
+can I get a home loan,loan_inquiry
+Can i get a home loan?,loan_inquiry
+please can I get a home loan,loan_inquiry
+loan interest rate,loan_inquiry
+Loan interest rate?,loan_inquiry
+please loan interest rate,loan_inquiry
+apply for two wheeler loan,loan_inquiry
+Apply for two wheeler loan?,loan_inquiry
+please apply for two wheeler loan,loan_inquiry
+pre-approved loan offer,loan_inquiry
+Pre-approved loan offer?,loan_inquiry
+please pre-approved loan offer,loan_inquiry
+what documents for personal loan,loan_inquiry
+What documents for personal loan?,loan_inquiry
+please what documents for personal loan,loan_inquiry
+loan against FD,loan_inquiry
+Loan against fd?,loan_inquiry
+please loan against FD,loan_inquiry
+calculate EMI for 5 lakh,emi_help
+Calculate emi for 5 lakh?,emi_help
+please calculate EMI for 5 lakh,emi_help
+reduce my EMI,emi_help
+Reduce my emi?,emi_help
+please reduce my EMI,emi_help
+foreclosure charges,emi_help
+Foreclosure charges?,emi_help
+please foreclosure charges,emi_help
+how many EMIs left,emi_help
+How many emis left?,emi_help
+please how many EMIs left,emi_help
+prepay personal loan,emi_help
+Prepay personal loan?,emi_help
+please prepay personal loan,emi_help
+EMI bounce what happens,emi_help
+Emi bounce what happens?,emi_help
+please EMI bounce what happens,emi_help
+update KYC,kyc_update
+Update kyc?,kyc_update
+please update KYC,kyc_update
+re kyc pending,kyc_update
+Re kyc pending?,kyc_update
+please re kyc pending,kyc_update
+upload aadhaar for kyc,kyc_update
+Upload aadhaar for kyc?,kyc_update
+please upload aadhaar for kyc,kyc_update
+video kyc slot,kyc_update
+Video kyc slot?,kyc_update
+please video kyc slot,kyc_update
+change address in KYC,kyc_update
+Change address in kyc?,kyc_update
+please change address in KYC,kyc_update
+PAN not updated,kyc_update
+Pan not updated?,kyc_update
+please PAN not updated,kyc_update
+I did not do this transaction,fraud_report
+I did not do this transaction?,fraud_report
+please I did not do this transaction,fraud_report
+unauthorised UPI debit,fraud_report
+Unauthorised upi debit?,fraud_report
+please unauthorised UPI debit,fraud_report
+report card fraud,fraud_report
+Report card fraud?,fraud_report
+please report card fraud,fraud_report
+someone stole money from my account,fraud_report
+Someone stole money from my account?,fraud_report
+please someone stole money from my account,fraud_report
+phishing debit please reverse,fraud_report
+Phishing debit please reverse?,fraud_report
+please phishing debit please reverse,fraud_report
+fraud sms stole my otp,fraud_report
+Fraud sms stole my otp?,fraud_report
+please fraud sms stole my otp,fraud_report
+chargeback this merchant,fraud_report
+Chargeback this merchant?,fraud_report
+please chargeback this merchant,fraud_report
+where should I SIP,investment_advice
+Where should i sip?,investment_advice
+please where should I SIP,investment_advice
+mutual fund suggestion,investment_advice
+Mutual fund suggestion?,investment_advice
+please mutual fund suggestion,investment_advice
+robo advisor portfolio,investment_advice
+Robo advisor portfolio?,investment_advice
+please robo advisor portfolio,investment_advice
+is equity too risky for me,investment_advice
+Is equity too risky for me?,investment_advice
+please is equity too risky for me,investment_advice
+gold vs debt allocation,investment_advice
+Gold vs debt allocation?,investment_advice
+please gold vs debt allocation,investment_advice
+start a monthly SIP,investment_advice
+Start a monthly sip?,investment_advice
+please start a monthly SIP,investment_advice
+raise a complaint,complaint
+Raise a complaint?,complaint
+please raise a complaint,complaint
+branch staff was rude,complaint
+Branch staff was rude?,complaint
+please branch staff was rude,complaint
+cheque not cleared,complaint
+Cheque not cleared?,complaint
+please cheque not cleared,complaint
+service request not closed,complaint
+Service request not closed?,complaint
+please service request not closed,complaint
+I want to escalate,complaint
+I want to escalate?,complaint
+please I want to escalate,complaint
+ombudsman complaint,complaint
+Ombudsman complaint?,complaint
+please ombudsman complaint,complaint
+nearest branch,branch_locator
+Nearest branch?,branch_locator
+please nearest branch,branch_locator
+ATM near me,branch_locator
+Atm near me?,branch_locator
+please ATM near me,branch_locator
+branch in Koramangala,branch_locator
+Branch in koramangala?,branch_locator
+please branch in Koramangala,branch_locator
+cash deposit machine pincode 560001,branch_locator
+Cash deposit machine pincode 560001?,branch_locator
+please cash deposit machine pincode 560001,branch_locator
+working hours of branch,branch_locator
+Working hours of branch?,branch_locator
+please working hours of branch,branch_locator
+thanks bye,goodbye
+Thanks bye?,goodbye
+please thanks bye,goodbye
+that is all,goodbye
+That is all?,goodbye
+please that is all,goodbye
+thank you,goodbye
+Thank you?,goodbye
+please thank you,goodbye
+goodbye,goodbye
+Goodbye?,goodbye
+please goodbye,goodbye
+ok thanks,goodbye
+Ok thanks?,goodbye
+please ok thanks,goodbye
+asdfgh,fallback
+Asdfgh?,fallback
+please asdfgh,fallback
+what is the weather,fallback
+What is the weather?,fallback
+please what is the weather,fallback
+play a song,fallback
+Play a song?,fallback
+please play a song,fallback
+who won the match,fallback
+Who won the match?,fallback
+please who won the match,fallback
+recipe for dosa,fallback
+Recipe for dosa?,fallback
+please recipe for dosa,fallback
+random gibberish text,fallback
+Random gibberish text?,fallback
+please random gibberish text,fallback

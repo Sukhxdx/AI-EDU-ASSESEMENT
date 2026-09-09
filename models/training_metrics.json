@@ -1,0 +1,38 @@
+{
+  "fraud": {
+    "flag_rate": 0.07,
+    "rows": 4000.0
+  },
+  "credit": {
+    "auc": 0.681298028733712,
+    "rows": 2500.0,
+    "default_rate": 0.0656
+  },
+  "chatbot": {
+    "accuracy": 1.0,
+    "intents": 16.0
+  },
+  "kyc": {
+    "accuracy": 1.0,
+    "classes": 7.0
+  },
+  "spend": {
+    "accuracy": 1.0,
+    "categories": 10.0
+  },
+  "sentiment": {
+    "accuracy": 1.0,
+    "rows": 93.0
+  },
+  "robo": {
+    "clusters": 4.0,
+    "rows": 800.0,
+    "inertia": 141.96827649531872
+  },
+  "aml": {
+    "high": 12.0,
+    "medium": 16.0,
+    "watch": 39.0,
+    "clear": 12.0
+  }
+}
