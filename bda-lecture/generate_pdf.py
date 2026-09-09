@@ -204,7 +204,7 @@ def header_footer(canvas, doc):
     canvas.drawRightString(
         A4[0] - 18 * mm,
         A4[1] - 7.5 * mm,
-        "Sukhada Dhingra  |  09 September 2026",
+        "Sukhada Dhingra  |  PRN 24070126505  |  09 September 2026",
     )
     canvas.setFillColor(NAVY)
     canvas.rect(0, 0, A4[0], 12 * mm, fill=1, stroke=0)
@@ -284,7 +284,7 @@ def build():
             ],
             [
                 Paragraph("Sukhada Dhingra", styles["MetaValue"]),
-                Paragraph("________________", styles["MetaValue"]),
+                Paragraph("24070126505", styles["MetaValue"]),
                 Paragraph("09 September 2026", styles["MetaValue"]),
                 Paragraph("Big Data Analytics", styles["MetaValue"]),
             ],
@@ -308,15 +308,7 @@ def build():
         )
     )
     story.append(meta)
-    story.append(Spacer(1, 3 * mm))
-    story.append(
-        Paragraph(
-            "PRN was not available in the workspace. Please write your Permanent Registration Number "
-            "on the blank line above before submitting.",
-            styles["FooterNote"],
-        )
-    )
-    story.append(Spacer(1, 4 * mm))
+    story.append(Spacer(1, 5 * mm))
     story.append(HRFlowable(width="100%", thickness=0.6, color=TEAL, spaceAfter=6))
     story.append(Paragraph("Assumptions", styles["SectionHead"]))
     story.append(
@@ -342,7 +334,6 @@ def build():
     story.append(Paragraph("Notes", styles["SectionHead"]))
     story.append(
         Paragraph(
-            "Write your PRN on page 1 before uploading or printing this worksheet. "
             "If a column in your notebook differs (for example <font face='Courier' size='9'>product_name</font> "
             "instead of <font face='Courier' size='9'>product</font>, or "
             "<font face='Courier' size='9'>status</font> instead of "

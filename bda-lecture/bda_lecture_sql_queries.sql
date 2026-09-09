@@ -1,6 +1,7 @@
 -- =============================================================================
 -- BDA Lecture — SQL Attendance Queries
 -- Student : Sukhada Dhingra
+-- PRN     : 24070126505
 -- Date    : 09 September 2026
 --
 -- Assumed table : orders
