@@ -7,6 +7,20 @@ This document provides an index to all development reports for the AI Edu Assess
 
 ## Available Reports
 
+### 0. B.Tech Project Monthly Progress Report (September 2026)
+**PDF (download)**: [../downloads/BTech_Project_Monthly_Progress_Report_September_2026.pdf](../downloads/BTech_Project_Monthly_Progress_Report_September_2026.pdf)
+
+**Word source**: [BTech_Project_Monthly_Progress_Report_September_2026.docx](./BTech_Project_Monthly_Progress_Report_September_2026.docx)
+
+CA-4 monthly progress format. Topic: multimodal image–text fake news detection. Semester VII. Internal guide: Dr. Nivedita Mishra. Group: Sukhada Dhingra (24070126505), Dipti Kothari (23070126040), Khurinji Malar (23070126059), Akhil Chivukula (26070126009).
+
+**How to regenerate** (optional):
+```
+python3 scripts/generate_mai_progress_report.py
+```
+
+---
+
 ### 1. Mobile Development Report
 **File**: [MOBILE_DEVELOPMENT_REPORT.md](./MOBILE_DEVELOPMENT_REPORT.md)
 
