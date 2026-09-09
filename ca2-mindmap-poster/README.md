@@ -1,6 +1,7 @@
 # CA2: Concept-to-Application Mind Map
 
 **Student:** Sukhada Dhingra  
+**PRN:** 24070126505  
 **Programme:** B.Tech. (Artificial Intelligence and Machine Learning)  
 **Institute:** Symbiosis Institute of Technology, Pune  
 **Assessment:** CA2 — Concept-to-Application Mind Map  
@@ -12,13 +13,7 @@
 - `Sukhada_Dhingra_CA2_Concept_to_Application_MindMap.pdf` — print-ready A2 landscape poster (use this for LMS upload)
 - `Sukhada_Dhingra_CA2_Concept_to_Application_MindMap.png` — same poster as an image, if the portal wants a picture
 
-## Fill in your PRN before upload
-
-The PRN is left as a dotted field on the letterhead (it is not a public identifier).
-
-1. Open `poster.html` in a text editor.
-2. Find the line with `class="prn"` and type your PRN inside the span.
-3. Run `bash generate_poster.sh` to rebuild the PDF and PNG.
+The letterhead already carries **Name: Sukhada Dhingra** and **PRN: 24070126505**.
 
 ## What the poster covers
 
