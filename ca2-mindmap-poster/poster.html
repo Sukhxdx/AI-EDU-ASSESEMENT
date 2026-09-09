@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<!--
+  CA2 poster — Sukhada Dhingra, SIT Pune (AIML)
+  Student: Sukhada Dhingra  |  PRN: 24070126505
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CA2 Concept-to-Application Mind Map | Sukhada Dhingra</title>
+  <style>
+    @page { size: A2 landscape; margin: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 594mm;
+      height: 420mm;
+      overflow: hidden;
+      background: #efe6d6;
+      color: #1a1a1a;
+      font-family: Inter, "Noto Sans", "Liberation Sans", sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+    .sheet {
+      width: 594mm;
+      height: 420mm;
+      padding: 7mm 8mm 6mm;
+      display: flex;
+      flex-direction: column;
+      gap: 3.2mm;
+      background:
+        linear-gradient(180deg, #f7f1e6 0%, #f3ead9 100%);
+      position: relative;
+    }
+    .sheet::before {
+      content: "";
+      position: absolute;
+      inset: 3.5mm;
+      border: 1.4px solid #7a1f2b;
+      pointer-events: none;
+    }
+    .sheet::after {
+      content: "";
+      position: absolute;
+      inset: 4.4mm;
+      border: 0.4px solid #c5a35a;
+      pointer-events: none;
+    }
+
+    /* Letterhead */
+    header.letter {
+      display: grid;
+      grid-template-columns: 18mm 1fr;
+      gap: 3.5mm;
+      align-items: center;
+      padding: 0 2mm 0;
+      position: relative;
+      z-index: 1;
+    }
+    .crest {
+      width: 17mm;
+      height: 17mm;
+    }
+    .inst h1 {
+      font-family: "Noto Serif", "Liberation Serif", serif;
+      font-size: 14.5pt;
+      letter-spacing: 0.08em;
+      color: #7a1f2b;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    .inst h2 {
+      font-size: 7.6pt;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #4a3b2a;
+      margin-top: 0.5mm;
+      font-weight: 600;
+    }
+    .idbar {
+      display: grid;
+      grid-template-columns: 1.35fr 1.05fr 0.9fr 0.85fr;
+      gap: 0;
+      margin: 2.2mm 2mm 0;
+      border: 1px solid #7a1f2b;
+      border-bottom: 2.2px solid #7a1f2b;
+      background: #fffdf8;
+      position: relative;
+      z-index: 1;
+    }
+    .idbar div {
+      padding: 1.6mm 3mm 1.5mm;
+      border-right: 1px solid #d7cbb3;
+      font-size: 7.3pt;
+      line-height: 1.25;
+    }
+    .idbar div:last-child { border-right: 0; }
+    .idbar .k {
+      display: block;
+      font-size: 6pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7a1f2b;
+      margin-bottom: 0.4mm;
+    }
+    .idbar .v {
+      font-family: "Noto Serif", serif;
+      font-size: 9.2pt;
+      font-weight: 700;
+      color: #1c2b4a;
+    }
+    .prn-line {
+      display: block;
+      width: 100%;
+      font-family: "Noto Serif", serif;
+      font-size: 9.2pt;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      color: #1c2b4a;
+    }
+
+    .title-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4mm;
+      align-items: end;
+      padding: 0 2mm;
+      position: relative;
+      z-index: 1;
+    }
+    .title-row h3 {
+      font-family: "Noto Serif", serif;
+      font-size: 16.5pt;
+      color: #1c2b4a;
+      line-height: 1.15;
+    }
+    .title-row h3 span {
+      display: block;
+      font-size: 8pt;
+      font-family: Inter, sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #7a1f2b;
+      margin-bottom: 1mm;
+    }
+    .thesis {
+      max-width: 118mm;
+      font-size: 7.5pt;
+      line-height: 1.35;
+      color: #2b241c;
+      background: #fffdf8;
+      border-left: 3px solid #c5a35a;
+      padding: 1.8mm 3mm;
+    }
+
+    /* Mind-map spine */
+    .spine {
+      position: relative;
+      z-index: 1;
+      height: 38mm;
+      margin: 0 2mm;
+    }
+    .spine svg { width: 100%; height: 100%; display: block; }
+    .spine text { font-family: Inter, sans-serif; }
+
+    /* Cards */
+    .board {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1fr 1fr;
+      gap: 3.2mm;
+      padding: 0 2mm;
+      position: relative;
+      z-index: 1;
+      min-height: 0;
+    }
+    .card {
+      background: #fffdf8;
+      border: 1px solid #d7cbb3;
+      border-top: 3.2px solid var(--c, #7a1f2b);
+      padding: 2.6mm 3mm 2.4mm;
+      display: flex;
+      flex-direction: column;
+      gap: 1.4mm;
+      box-shadow: 0 0.6mm 1.4mm rgba(80, 50, 30, 0.06);
+      min-height: 0;
+    }
+    .card h4 {
+      font-family: "Noto Serif", serif;
+      font-size: 10.2pt;
+      color: var(--c, #7a1f2b);
+      display: flex;
+      align-items: baseline;
+      gap: 2mm;
+      line-height: 1.15;
+    }
+    .card h4 em {
+      font-style: normal;
+      font-family: Inter, sans-serif;
+      font-size: 6.6pt;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #6a5a48;
+      background: #efe4cf;
+      padding: 0.3mm 1.4mm;
+    }
+    .card p, .card li {
+      font-size: 7.35pt;
+      line-height: 1.32;
+      color: #241e18;
+    }
+    .card ul { padding-left: 3.6mm; }
+    .card li { margin-bottom: 0.4mm; }
+    .lab {
+      font-size: 6.4pt;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--c, #7a1f2b);
+    }
+    .formula {
+      font-family: "Noto Serif", serif;
+      font-size: 7.6pt;
+      background: #f4efe4;
+      border: 0.6px solid #e0d3ba;
+      padding: 1.4mm 2mm;
+      line-height: 1.35;
+      color: #1c2b4a;
+    }
+    .app {
+      background: #f8f1e4;
+      border-left: 2.4px solid var(--c, #c5a35a);
+      padding: 1.2mm 2mm;
+      font-size: 7.2pt;
+      line-height: 1.32;
+    }
+    .app strong { color: #7a1f2b; }
+    .grow { flex: 1; }
+
+    /* Bottom band */
+    .bottom {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 0.85fr;
+      gap: 3.2mm;
+      padding: 0 2mm;
+      position: relative;
+      z-index: 1;
+      height: 78mm;
+    }
+    .panel {
+      background: #fffdf8;
+      border: 1px solid #d7cbb3;
+      padding: 2.4mm 3mm;
+      display: flex;
+      flex-direction: column;
+      gap: 1.3mm;
+    }
+    .panel h4 {
+      font-family: "Noto Serif", serif;
+      font-size: 9.4pt;
+      color: #7a1f2b;
+    }
+    .panel p, .panel li {
+      font-size: 7.15pt;
+      line-height: 1.32;
+      color: #241e18;
+    }
+    .panel ul { padding-left: 3.5mm; }
+
+    footer.foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 6.5pt;
+      color: #4a3f34;
+      padding: 0 2mm;
+      border-top: 1px solid #c5a35a;
+      padding-top: 1.6mm;
+      position: relative;
+      z-index: 1;
+    }
+    footer.foot strong { color: #7a1f2b; }
+
+    .tiny { font-size: 6.6pt; color: #3f352b; line-height: 1.3; }
+    svg.mini { display: block; }
+    .rowish { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 2mm; align-items: start; }
+  </style>
+</head>
+<body>
+  <div class="sheet">
+    <header class="letter">
+      <svg class="crest" viewBox="0 0 80 80" aria-hidden="true">
+        <circle cx="40" cy="40" r="37" fill="#7a1f2b"/>
+        <circle cx="40" cy="40" r="31" fill="none" stroke="#c5a35a" stroke-width="2"/>
+        <circle cx="40" cy="40" r="26" fill="#f7f1e6"/>
+          <path d="M40 16 L46 34 H64 L50 45 L56 64 L40 52 L24 64 L30 45 L16 34 H34 Z" fill="#7a1f2b"/>
+      </svg>
+      <div class="inst">
+        <h1>SYMBIOSIS INSTITUTE OF TECHNOLOGY, PUNE</h1>
+        <h2>Department of Artificial Intelligence and Machine Learning &nbsp;·&nbsp; Constituent of Symbiosis International (Deemed University)</h2>
+      </div>
+    </header>
+    <div class="idbar">
+      <div>
+        <span class="k">Student name</span>
+        <span class="v">Sukhada Dhingra</span>
+      </div>
+      <div>
+        <span class="k">Permanent Registration No. (PRN)</span>
+        <span class="v prn-line" id="prn-value">24070126505</span>
+      </div>
+      <div>
+        <span class="k">Programme</span>
+        <span class="v">B.Tech. (AI &amp; ML)</span>
+      </div>
+      <div>
+        <span class="k">CA2 · Online · 9 Sept 2026</span>
+        <span class="v">Concept-to-Application</span>
+      </div>
+    </div>
+
+    <div class="title-row">
+      <h3>
+        <span>CA2 · Concept-to-Application Mind Map</span>
+        From a Graph to a Decision: Embeddings, Walks and Influence
+      </h3>
+      <p class="thesis">
+        A graph stores who is linked to whom. A model cannot use raw node IDs. This map follows one question through seven tools: how do we turn structure into a vector, a rank, or a label that we can actually act on?
+      </p>
+    </div>
+
+    <div class="spine" aria-label="Mind map hierarchy">
+      <svg viewBox="0 0 1480 148" preserveAspectRatio="none">
+        <defs>
+          <marker id="arr" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+            <polygon points="0 0, 7 3.5, 0 7" fill="#7a1f2b"/>
+          </marker>
+        </defs>
+        <!-- trunk -->
+        <rect x="505" y="8" width="470" height="36" rx="3" fill="#7a1f2b"/>
+        <text x="740" y="24" text-anchor="middle" fill="#f7f1e6" font-size="13" font-weight="700">GRAPH G = (V, E)  —  structure that must be made usable</text>
+        <text x="740" y="37" text-anchor="middle" fill="#e7c98a" font-size="10">Mind-map trunk · two tracks that share the idea of a walk on edges</text>
+
+        <line x1="620" y1="44" x2="280" y2="68" stroke="#c5a35a" stroke-width="2"/>
+        <line x1="860" y1="44" x2="1200" y2="68" stroke="#7a1f2b" stroke-width="2"/>
+
+        <rect x="70" y="68" width="430" height="26" rx="3" fill="#1c2b4a"/>
+        <text x="285" y="85" text-anchor="middle" fill="#f7f1e6" font-size="12" font-weight="700">TRACK A · ENCODE  —  who is similar to whom?</text>
+
+        <rect x="980" y="68" width="430" height="26" rx="3" fill="#7a1f2b"/>
+        <text x="1195" y="85" text-anchor="middle" fill="#f7f1e6" font-size="12" font-weight="700">TRACK B · INFLUENCE  —  who matters, who belongs?</text>
+
+        <!-- A children -->
+        <line x1="140" y1="94" x2="90" y2="118" stroke="#1c2b4a" stroke-width="1.4"/>
+        <line x1="230" y1="94" x2="230" y2="118" stroke="#1c2b4a" stroke-width="1.4"/>
+        <line x1="330" y1="94" x2="370" y2="118" stroke="#1c2b4a" stroke-width="1.4"/>
+        <line x1="420" y1="94" x2="510" y2="118" stroke="#1c2b4a" stroke-width="1.4"/>
+        <rect x="18" y="118" width="145" height="22" rx="2" fill="#eef2f7" stroke="#1c2b4a"/>
+        <text x="90" y="133" text-anchor="middle" fill="#1c2b4a" font-size="10" font-weight="700">1 Node embeddings</text>
+        <rect x="170" y="118" width="145" height="22" rx="2" fill="#e8f3f1" stroke="#2a6f73"/>
+        <text x="242" y="133" text-anchor="middle" fill="#2a6f73" font-size="10" font-weight="700">2 Shallow embeddings</text>
+        <rect x="322" y="118" width="130" height="22" rx="2" fill="#eef3e8" stroke="#3d5a3d"/>
+        <text x="387" y="133" text-anchor="middle" fill="#3d5a3d" font-size="10" font-weight="700">3 Random walk</text>
+        <rect x="460" y="118" width="110" height="22" rx="2" fill="#f7efd8" stroke="#8a6a22"/>
+        <text x="515" y="133" text-anchor="middle" fill="#8a6a22" font-size="10" font-weight="700">4 node2vec</text>
+
+        <!-- B children -->
+        <line x1="1100" y1="94" x2="1000" y2="118" stroke="#7a1f2b" stroke-width="1.4"/>
+        <line x1="1195" y1="94" x2="1195" y2="118" stroke="#7a1f2b" stroke-width="1.4"/>
+        <line x1="1290" y1="94" x2="1380" y2="118" stroke="#7a1f2b" stroke-width="1.4"/>
+        <rect x="900" y="118" width="145" height="22" rx="2" fill="#f8eaea" stroke="#7a1f2b"/>
+        <text x="972" y="133" text-anchor="middle" fill="#7a1f2b" font-size="10" font-weight="700">5 Link analysis</text>
+        <rect x="1055" y="118" width="145" height="22" rx="2" fill="#f6ece4" stroke="#9a4330"/>
+        <text x="1127" y="133" text-anchor="middle" fill="#9a4330" font-size="10" font-weight="700">6 PageRank</text>
+        <rect x="1210" y="118" width="250" height="22" rx="2" fill="#f3eaf4" stroke="#6b3d72"/>
+        <text x="1335" y="133" text-anchor="middle" fill="#6b3d72" font-size="10" font-weight="700">7 Label propagation</text>
+
+        <!-- cross link -->
+        <path d="M515 129 C 680 129, 780 108, 900 129" fill="none" stroke="#c5a35a" stroke-width="1.2" stroke-dasharray="4 3"/>
+        <text x="740" y="112" text-anchor="middle" fill="#8a6a22" font-size="9">shared engine: a walk on the graph</text>
+      </svg>
+    </div>
+
+    <section class="board">
+      <!-- 1 -->
+      <article class="card" style="--c:#1c2b4a">
+        <h4>1. Node embeddings <em>Concept</em></h4>
+        <p>Each node <em>v</em> is mapped to a vector <em>z<sub>v</sub> ∈ ℝ<sup>d</sup></em> so that geometry in ℝ<sup>d</sup> copies closeness on the graph. Discrete IDs cannot generalise; a vector can be compared, clustered, or scored for a missing edge.</p>
+        <div class="formula">
+          Desired rule: &nbsp; sim<sub>G</sub>(u, v) ≈ z<sub>u</sub><sup>⊤</sup> z<sub>v</sub><br/>
+          Softmax context: &nbsp; P(n | v) = exp(z<sub>n</sub><sup>⊤</sup> z<sub>v</sub>) / Σ<sub>u</sub> exp(z<sub>u</sub><sup>⊤</sup> z<sub>v</sub>)
+        </div>
+        <svg class="mini" viewBox="0 0 280 52" width="100%" height="15mm">
+          <rect x="1" y="1" width="278" height="50" fill="#f4efe4" stroke="#d7cbb3"/>
+          <text x="8" y="12" font-size="8" fill="#1c2b4a">embedding space</text>
+          <circle cx="70" cy="32" r="14" fill="none" stroke="#1c2b4a" stroke-dasharray="2 2"/>
+          <circle cx="64" cy="30" r="4" fill="#1c2b4a"/>
+          <circle cx="78" cy="28" r="4" fill="#1c2b4a"/>
+          <circle cx="72" cy="38" r="4" fill="#7a1f2b"/>
+          <text x="92" y="30" font-size="8" fill="#1c2b4a">ops teams</text>
+          <circle cx="190" cy="30" r="14" fill="none" stroke="#9a4330" stroke-dasharray="2 2"/>
+          <circle cx="184" cy="28" r="4" fill="#9a4330"/>
+          <circle cx="196" cy="34" r="4" fill="#6b3d72"/>
+          <text x="208" y="30" font-size="8" fill="#9a4330">academic</text>
+        </svg>
+        <p class="grow">If two fest teams keep appearing in the same working chains, their vectors sit nearby even when no single edge says “same type of work”.</p>
+        <div class="app"><strong>Application.</strong> Recommend a coordination partner for a new intern: nearest neighbour of the PR-cell vector in embedding space, not a manual org-chart lookup.</div>
+      </article>
+
+      <!-- 2 -->
+      <article class="card" style="--c:#2a6f73">
+        <h4>2. Shallow embeddings <em>Method family</em></h4>
+        <p>The encoder is only a lookup table. Node <em>v</em> has its own row in <em>Z ∈ ℝ<sup>|V|×d</sup></em>. There is no filter shared across nodes, so a brand-new vertex has no row until it is retrained. DeepWalk, LINE and node2vec all sit here.</p>
+        <div class="formula">
+          ENC(v) = Z<sub>v</sub> &nbsp;&nbsp;(one row per node)<br/>
+          Reconstruction view: &nbsp; S ≈ σ(Z Z<sup>⊤</sup>), &nbsp; S = proximity (edge, k-hop, or walk)
+        </div>
+        <div class="formula" style="font-family:Inter,sans-serif;font-size:7.1pt;">
+          <strong>Shallow (this CA):</strong> lookup row, transductive, DeepWalk / LINE / node2vec.<br/>
+          <strong>Not shallow:</strong> a GNN shares one filter W on every neighbourhood and can embed a node that was absent at train time.
+        </div>
+        <p class="grow">A shallow table cannot share weights. That is a design choice, not a bug, when the campus roster is fixed for a semester.</p>
+        <div class="app"><strong>Application.</strong> Pre-compute one vector per registered society before the sports fest, then query similar societies in milliseconds during stall allocation.</div>
+      </article>
+
+      <!-- 3 -->
+      <article class="card" style="--c:#3d5a3d">
+        <h4>3. Random walk <em>Sampler</em></h4>
+        <p>A walk is a path <em>v<sub>0</sub>, v<sub>1</sub>, …</em> that hops to a random neighbour. It turns the graph into “sentences” of node IDs. DeepWalk treats those sentences the way skip-gram treats text.</p>
+        <div class="formula">
+          P(j | i) = A<sub>ij</sub> / d<sub>i</sub> &nbsp;&nbsp;·&nbsp;&nbsp; undirected occupancy π<sub>i</sub> = d<sub>i</sub> / 2|E|
+        </div>
+        <svg class="mini" viewBox="0 0 280 52" width="100%" height="16mm">
+          <line x1="22" y1="24" x2="258" y2="24" stroke="#c9d4c6" stroke-width="2"/>
+          <line x1="92" y1="24" x2="188" y2="24" stroke="#3d5a3d" stroke-width="3.5"/>
+          <circle cx="22" cy="24" r="11" fill="#efe4cf" stroke="#3d5a3d"/><text x="22" y="27" text-anchor="middle" font-size="9">S</text>
+          <circle cx="92" cy="24" r="11" fill="#3d5a3d"/><text x="92" y="27" text-anchor="middle" fill="#fff" font-size="9">H</text>
+          <circle cx="162" cy="24" r="12" fill="#3d5a3d"/><text x="162" y="27" text-anchor="middle" fill="#fff" font-size="9">PR</text>
+          <circle cx="232" cy="24" r="11" fill="#3d5a3d"/><text x="232" y="27" text-anchor="middle" fill="#fff" font-size="9">V</text>
+          <text x="140" y="48" text-anchor="middle" font-size="8" fill="#3d5a3d">one emitted sentence:  H → PR → V</text>
+        </svg>
+        <div class="app"><strong>Application.</strong> A volunteer “bouncing” between stalls traces the same statistics a walker traces: local traffic, not the full adjacency matrix.</div>
+      </article>
+
+      <!-- 4 -->
+      <article class="card" style="--c:#8a6a22">
+        <h4>4. node2vec <em>Biased walk</em></h4>
+        <p>Grover &amp; Leskovec (2016). After the step <em>t → v</em>, the next node <em>x</em> is not chosen uniformly. Distance <em>d<sub>tx</sub></em> reweights the edge, so the walk can hug a clique or hunt for similar roles.</p>
+        <div class="formula">
+          After t → v: &nbsp; α<sub>pq</sub>(t,x) = 1/p if d<sub>tx</sub>=0; &nbsp; 1 if d<sub>tx</sub>=1; &nbsp; 1/q if d<sub>tx</sub>=2<br/>
+          π<sub>vx</sub> = α<sub>pq</sub>(t,x) · w<sub>vx</sub>
+        </div>
+        <svg class="mini" viewBox="0 0 280 58" width="100%" height="17mm">
+          <line x1="28" y1="30" x2="95" y2="30" stroke="#8a6a22" stroke-width="2"/>
+          <line x1="95" y1="30" x2="168" y2="14" stroke="#8a6a22" stroke-width="2"/>
+          <line x1="95" y1="30" x2="168" y2="46" stroke="#8a6a22" stroke-width="2"/>
+          <circle cx="28" cy="30" r="12" fill="#fffdf8" stroke="#8a6a22"/><text x="28" y="33" text-anchor="middle" font-size="10">t</text>
+          <circle cx="95" cy="30" r="12" fill="#8a6a22"/><text x="95" y="33" text-anchor="middle" fill="#fff" font-size="10">v</text>
+          <circle cx="168" cy="14" r="11" fill="#fffdf8" stroke="#8a6a22"/><text x="168" y="17" text-anchor="middle" font-size="10">x</text>
+          <circle cx="168" cy="46" r="11" fill="#fffdf8" stroke="#8a6a22"/><text x="168" y="49" text-anchor="middle" font-size="9">t</text>
+          <text x="210" y="18" font-size="8" fill="#8a6a22">d=2 → 1/q  (explore)</text>
+          <text x="210" y="38" font-size="8" fill="#6a5a48">d=1 → 1  (BFS)</text>
+          <text x="210" y="52" font-size="8" fill="#8a6a22">d=0 → 1/p  (return)</text>
+        </svg>
+        <p>Small <em>p</em> stays local (homophily). Small <em>q</em> steps outward and groups nodes with the same job in the graph (structural equivalence). Context window then trains skip-gram with negative sampling.</p>
+        <div class="app"><strong>Application.</strong> Low <em>q</em> pulls PR, Hospitality and Faculty Advisor together as coordinators even if they do not share a dense clique. High <em>p</em> keeps the cultural stall cluster tight.</div>
+      </article>
+
+      <!-- 5 -->
+      <article class="card" style="--c:#7a1f2b">
+        <h4>5. Link analysis <em>Who endorses whom</em></h4>
+        <p>Here the question is not “who looks alike” but “who is pointed to”. Web links, paper citations and case citations are directed endorsements. Two classical readings of the same adjacency matrix <em>A</em>:</p>
+        <div class="formula">
+          Prestige (one score): PageRank on the column-stochastic walk.<br/>
+          HITS: &nbsp; a ∝ A<sup>⊤</sup> h, &nbsp; h ∝ A a &nbsp; (normalise each round)
+        </div>
+        <svg class="mini" viewBox="0 0 280 48" width="100%" height="14mm">
+          <rect x="1" y="1" width="278" height="46" fill="#f8eaea" stroke="#e0c8c8"/>
+          <circle cx="50" cy="24" r="12" fill="#7a1f2b"/><text x="50" y="27" text-anchor="middle" fill="#fff" font-size="8">hub</text>
+          <line x1="64" y1="18" x2="118" y2="12" stroke="#7a1f2b"/>
+          <line x1="64" y1="24" x2="118" y2="24" stroke="#7a1f2b"/>
+          <line x1="64" y1="30" x2="118" y2="36" stroke="#7a1f2b"/>
+          <circle cx="132" cy="12" r="8" fill="#fffdf8" stroke="#7a1f2b"/><text x="154" y="15" font-size="8" fill="#7a1f2b">authority</text>
+          <circle cx="132" cy="24" r="8" fill="#fffdf8" stroke="#7a1f2b"/>
+          <circle cx="132" cy="36" r="8" fill="#fffdf8" stroke="#7a1f2b"/>
+          <text x="200" y="22" font-size="8" fill="#7a1f2b">PR Cell = hub</text>
+          <text x="200" y="34" font-size="8" fill="#7a1f2b">Sports = authority</text>
+        </svg>
+        <p class="grow">An <em>authority</em> is cited by good hubs. A <em>hub</em> points to good authorities. On the fest graph, Sports Council behaves like an authority (others depend on its timetable). PR Cell behaves like a hub (it routes people to many teams).</p>
+        <div class="app"><strong>Application.</strong> In a judgment-citation network, a frequently cited order is an authority; a review note that cites many orders is a hub. Useful when ranking statutes before a legal-research query.</div>
+      </article>
+
+      <!-- 6 -->
+      <article class="card" style="--c:#9a4330">
+        <h4>6. PageRank <em>Stationary walk</em></h4>
+        <p>Page, Brin et al. A walker follows an out-link with probability <em>α</em> and jumps anywhere with probability <em>1−α</em>. The jump (teleport) kills rank sinks and dangling nodes. On an undirected graph the ranking stays close to degree; teleport only softens the gap.</p>
+        <div class="formula">
+          PR(i) = (1−α)/n + α Σ<sub>j ∈ B(i)</sub> PR(j) / L(j)<br/>
+          Matrix form: &nbsp; r = α P<sup>⊤</sup> r + (1−α) n<sup>−1</sup> 1, &nbsp; typically α = 0.85
+        </div>
+        <svg class="mini" viewBox="0 0 280 44" width="100%" height="13mm">
+          <rect x="1" y="1" width="278" height="42" fill="#f6ece4" stroke="#e3cfc4"/>
+          <circle cx="90" cy="22" r="11" fill="#9a4330"/><text x="90" y="25" text-anchor="middle" fill="#fff" font-size="8">i</text>
+          <path d="M30 22 H76" stroke="#9a4330" stroke-width="1.6"/>
+          <text x="32" y="14" font-size="8" fill="#9a4330">α · follow a link</text>
+          <path d="M200 8 Q 250 22 200 36" fill="none" stroke="#c5a35a" stroke-width="1.4" stroke-dasharray="3 2"/>
+          <text x="168" y="14" font-size="8" fill="#8a6a22">1−α teleport</text>
+        </svg>
+        <p class="grow">Simple-walk occupancy on the 9-edge fest graph is π<sub>i</sub> = d<sub>i</sub>/18. PR Cell and Volunteers both have degree 4, so each holds about 0.22 of the walk mass — the two junctions that must not fail on event day.</p>
+        <div class="app"><strong>Application.</strong> Rank campus pages for search; rank committees by information load; rank cited cases so a legal assistant surfaces the judgment that the rest of the corpus actually leans on.</div>
+      </article>
+
+      <!-- 7 -->
+      <article class="card" style="--c:#6b3d72">
+        <h4>7. Label propagation <em>Spreading tags</em></h4>
+        <p>A few nodes already know their class. Every other node takes a smoothed average of its neighbours, while labelled nodes are clamped. The harmonic solution of Zhu et al. is the closed form of that smoothing. Raghavan’s majority-vote rule is the unsupervised cousin used for communities.</p>
+        <div class="formula">
+          Iterate: Y ← D<sup>−1</sup> A Y, then reset labelled rows to Y<sub>L</sub>.<br/>
+          Harmonic block: &nbsp; L<sub>UU</sub> f<sub>U</sub> = W<sub>UL</sub> f<sub>L</sub>
+        </div>
+        <p class="grow">Seed Sports = Operations and Tech = Academic. Hospitality leans Operations (it touches Sports). Faculty Advisor leans Academic (it touches Tech). Volunteers sit on the cut and stay mixed — which is the honest answer, not a failure of the algorithm.</p>
+        <div class="app"><strong>Application.</strong> Tag unlabelled students in a club graph from a handful of known members; assign fest duties; fill missing topic labels on a citation graph.</div>
+      </article>
+
+      <!-- insight card -->
+      <article class="card" style="--c:#c5a35a">
+        <h4>How the seven ideas lock <em>Insight</em></h4>
+        <ul>
+          <li>A <strong>random walk</strong> is the common physical story. node2vec <em>samples</em> it; PageRank <em>solves</em> its stationary distribution (with a teleport).</li>
+          <li><strong>Shallow embeddings</strong> store one vector per node. node2vec is the shallow method that feeds walk contexts into skip-gram.</li>
+          <li><strong>Embeddings</strong> answer similarity. <strong>PageRank</strong> answers importance. <strong>Label propagation</strong> answers membership. Link prediction (score z<sub>u</sub><sup>⊤</sup> z<sub>v</sub>) sits on the cut between embeddings and link analysis.</li>
+          <li>If the roster will grow mid-semester, a lookup table is the wrong encoder; a GNN (out of this CA’s scope, but the contrast matters) shares weights and can embed a new node from its neighbours.</li>
+        </ul>
+        <div class="app"><strong>One-line map.</strong> Encode with walks → rank with a walk → spread labels on the same edges. Three questions, one graph.</div>
+      </article>
+    </section>
+
+    <section class="bottom">
+      <div class="panel">
+        <h4>Worked example — SIT Fest Collaboration Graph (original)</h4>
+        <div class="rowish">
+          <svg viewBox="0 0 260 150" width="100%" height="48mm">
+            <line x1="40" y1="30" x2="110" y2="74" stroke="#c5a35a" stroke-width="1.7"/>
+            <line x1="40" y1="122" x2="110" y2="74" stroke="#c5a35a" stroke-width="1.7"/>
+            <line x1="188" y1="30" x2="110" y2="74" stroke="#c5a35a" stroke-width="1.7"/>
+            <line x1="148" y1="122" x2="110" y2="74" stroke="#c5a35a" stroke-width="1.7"/>
+            <line x1="40" y1="30" x2="40" y2="122" stroke="#d4c6ae"/>
+            <line x1="40" y1="30" x2="188" y2="30" stroke="#d4c6ae"/>
+            <line x1="40" y1="122" x2="188" y2="30" stroke="#e6dcc8"/>
+            <line x1="188" y1="30" x2="224" y2="122" stroke="#d4c6ae"/>
+            <line x1="148" y1="122" x2="224" y2="122" stroke="#d4c6ae"/>
+            <circle cx="110" cy="74" r="16" fill="#7a1f2b"/><text x="110" y="78" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">PR</text>
+            <circle cx="40" cy="30" r="14" fill="#1c2b4a"/><text x="40" y="34" text-anchor="middle" fill="#fff" font-size="8">Sports</text>
+            <circle cx="40" cy="122" r="14" fill="#2a6f73"/><text x="40" y="126" text-anchor="middle" fill="#fff" font-size="8">Hosp</text>
+            <circle cx="188" cy="30" r="14" fill="#3d5a3d"/><text x="188" y="34" text-anchor="middle" fill="#fff" font-size="8">Vol</text>
+            <circle cx="148" cy="122" r="14" fill="#6b3d72"/><text x="148" y="126" text-anchor="middle" fill="#fff" font-size="8">Fac</text>
+            <circle cx="224" cy="122" r="14" fill="#9a4330"/><text x="224" y="126" text-anchor="middle" fill="#fff" font-size="8">Tech</text>
+            <text x="130" y="12" text-anchor="middle" font-size="8" fill="#7a1f2b">9 undirected edges · 6 committees</text>
+          </svg>
+          <div>
+            <p>Nodes: PR Cell, Sports, Hospitality, Volunteers, Faculty Advisor, Tech Club. Edges = “worked together during the institutional sports fest” (9 links).</p>
+            <ul>
+              <li>Degrees: PR=4, Vol=4, Sports=3, Hosp=3, Tech=2, Fac=2.</li>
+              <li>Walk mass π = d/18: PR and Vol ≈ 0.22 each. They are the busiest junctions.</li>
+              <li>HITS reading: PR is the hub; Sports is an authority for the operations side.</li>
+              <li>LPA seeds: Sports = Ops, Tech = Academic. Hosp follows Ops; Fac follows Academic; Vol stays on the cut.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h4>Same graph, seven readings</h4>
+        <ul>
+          <li><strong>Embeddings:</strong> PR sits near Hosp because they co-occur on walks, even though their “job titles” differ.</li>
+          <li><strong>Shallow table:</strong> six rows in Z; a new stall added on event morning has no vector until retraining.</li>
+          <li><strong>Walk:</strong> H → PR → Vol is a typical sentence DeepWalk would emit.</li>
+          <li><strong>node2vec:</strong> small q groups PR / Hosp / Fac as coordinator roles (structural equivalence).</li>
+          <li><strong>Link analysis:</strong> directed version of “who reports to whom” separates hubs from authorities.</li>
+          <li><strong>PageRank:</strong> protect PR and Volunteers first; they carry the walk.</li>
+          <li><strong>LPA:</strong> do not force Volunteers into one bucket — mixed membership is the signal for floating duty.</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <h4>Sources used (not copied)</h4>
+        <p>Explanations and the fest graph are written in my own words. Algorithms are the standard ones taught in graph mining; I am attributing them, not quoting textbooks.</p>
+        <ul>
+          <li>Perozzi et al., DeepWalk (KDD 2014)</li>
+          <li>Grover &amp; Leskovec, node2vec (KDD 2016)</li>
+          <li>Page, Brin, Motwani, Winograd — PageRank</li>
+          <li>Kleinberg — HITS</li>
+          <li>Zhu, Ghahramani, Lafferty — harmonic LPA</li>
+          <li>Raghavan et al. — community LPA</li>
+        </ul>
+        <p class="tiny" style="margin-top:1.5mm">Originality: definitions, formulae layout, SIT Fest Collaboration Graph, legal-citation application and the two-track mind map are my own academic work for CA2. No paragraph is taken from a website, slide deck or generative write-up.</p>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <span><strong>Sukhada Dhingra</strong> &nbsp;·&nbsp; PRN 24070126505 &nbsp;·&nbsp; B.Tech. AIML, SIT Pune &nbsp;·&nbsp; CA2: Concept-to-Application Mind Map &nbsp;·&nbsp; 9 September 2026 &nbsp;·&nbsp; Online submission</span>
+      <span>CO3 Content accuracy &nbsp;|&nbsp; CO4 Coverage, structure, visual insight</span>
+    </footer>
+  </div>
+</body>
+</html>
