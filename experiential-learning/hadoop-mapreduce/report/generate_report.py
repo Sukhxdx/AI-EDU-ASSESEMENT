@@ -46,9 +46,7 @@ DIAG.mkdir(parents=True, exist_ok=True)
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
 STUDENT_NAME = "Sukhada Dhingra"
-# PRN is not published on GitHub/LinkedIn. Cover and running header keep a
-# dedicated PRN field so the printed copy can be completed before submission.
-STUDENT_PRN = "________________"
+STUDENT_PRN = "24070126505"
 PROGRAMME = "B.Tech. (Artificial Intelligence and Machine Learning)"
 INSTITUTE = "Symbiosis Institute of Technology, Pune"
 UNIVERSITY = "Symbiosis International (Deemed University)"
@@ -694,12 +692,6 @@ def build_pdf(diagrams, shots):
     ]))
     story.append(sign)
     story.append(Spacer(1, 6 * mm))
-    story.append(p(
-        f"<i>Note on PRN:</i> the PRN field is printed on the cover, in this declaration, and in the "
-        f"running header of every page. If the underline is still blank on a printed copy, write the "
-        f"official SIU PRN in those three places before filing the report.",
-        ss["CenterSmall"],
-    ))
 
     story.append(p("2. Abstract", ss["H1"]))
     story.append(p(

@@ -9,7 +9,7 @@ This folder contains the Java MapReduce programs, datasets, execution screenshot
 
 ## What is in the PDF
 
-- Cover page with **name** (Sukhada Dhingra) and a **PRN** field on the cover, header, declaration, and identity table
+- Cover page with **name** Sukhada Dhingra and **PRN** 24070126505 on the cover, header, declaration, and identity table
 - Theory: Big Data, HDFS, YARN, MapReduce (map → shuffle/sort → reduce)
 - Two jobs actually executed on **Apache Hadoop 3.5.0** + **OpenJDK 21**
   - `WordCount` — 316 map records, 197 distinct words
@@ -17,7 +17,7 @@ This folder contains the Java MapReduce programs, datasets, execution screenshot
 - Seven terminal screenshots of version, compile, job SUCCESS, and `part-r-00000`
 - Source listings, counters, charts, viva notes, conclusion, references
 
-Write your official SIU PRN on the underlined PRN fields before printing if it is not already filled.
+**PRN 24070126505** is printed on the cover, running header, declaration, and identity table.
 
 ## Run the jobs (optional)
 
