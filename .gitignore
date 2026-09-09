@@ -21,7 +21,17 @@ build/
 *.db
 *.sqlite
 *.sqlite3
-data/
+/backend/data/
+data/*.db
+
+# Experiential learning datasets must be committed
+!experiential-learning/hadoop-mapreduce/data/
+
+# Hadoop local compile output
+experiential-learning/hadoop-mapreduce/work/*.class
+experiential-learning/hadoop-mapreduce/work/*.jar
+experiential-learning/hadoop-mapreduce/work/logs/
+experiential-learning/hadoop-mapreduce/work/**/*.crc
 
 # Node
 node_modules/

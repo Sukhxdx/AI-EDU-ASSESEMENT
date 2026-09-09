@@ -1,0 +1,34 @@
+Hadoop MapReduce is a programming paradigm used for processing huge volumes of data
+in a distributed and parallel manner. Big Data Analytics relies on Hadoop because a
+single machine cannot store or process terabytes and petabytes of information.
+
+The Hadoop Distributed File System stores data as blocks across DataNodes. The
+NameNode keeps metadata. Replication provides fault tolerance. MapReduce brings
+computation close to the data. The Map phase transforms input records into
+intermediate key value pairs. The Shuffle and Sort phase groups values by key.
+The Reduce phase aggregates those values into the final result.
+
+Word count is the Hello World of MapReduce. Every mapper emits a word and the
+number one. Combiners perform local aggregation. Reducers compute the global
+frequency of each word. This pattern appears in log analysis, search indexes,
+sentiment pipelines, and recommendation systems.
+
+Hadoop YARN manages cluster resources. HDFS provides storage. MapReduce, Spark,
+Hive and Pig sit on top of this stack. Experiential learning of the MapReduce
+paradigm helps students understand why Big Data frameworks scale.
+
+Big data is defined by volume, velocity, variety, veracity and value. Traditional
+relational databases struggle when data is unstructured or arrives as a stream.
+Hadoop was designed at scale by Doug Cutting and Mike Cafarella after the Google
+File System and Google MapReduce papers. Today Hadoop remains a core topic in
+Big Data Analytics courses because it teaches data locality, fault tolerance,
+and divide-and-conquer processing.
+
+MapReduce jobs are batch oriented. They shine when the same scan of a large
+dataset must be performed reliably. Interactive queries are better served by
+Spark SQL or Hive on Tez. Understanding MapReduce is still essential because
+those engines reuse the same map shuffle reduce idea.
+
+Students should practise compiling a MapReduce jar, placing files in HDFS or
+local input folders, submitting a job, reading counters, and inspecting
+part-r-00000. That workflow is the experiential core of this assignment.
