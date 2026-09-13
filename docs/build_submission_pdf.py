@@ -192,10 +192,6 @@ def build() -> Path:
          Paragraph("CO3 — applied AI functions; CO4 — design, use and impact", styles["cover_meta"])],
         [Paragraph("<b>Application</b>", styles["cover_meta"]),
          Paragraph("NexusBank AI (simulator, Streamlit + FastAPI)", styles["cover_meta"])],
-        [Paragraph("<b>GitHub repository</b>", styles["cover_meta"]),
-         Paragraph("Sukhxdx/AI-EDU-ASSESEMENT — branch cursor/nexusbank-ai-fintech-38c8", styles["cover_meta"])],
-        [Paragraph("<b>Pull request</b>", styles["cover_meta"]),
-         Paragraph("https://github.com/Sukhxdx/AI-EDU-ASSESEMENT/pull/12", styles["cover_meta"])],
     ]
     table = Table(meta, colWidths=[52 * mm, 118 * mm])
     table.setStyle(TableStyle([
@@ -464,8 +460,6 @@ def build() -> Path:
         [Paragraph("<b>Name</b>", styles["body"]), Paragraph(NAME, styles["body"])],
         [Paragraph("<b>PRN</b>", styles["body"]), Paragraph(PRN, styles["body"])],
         [Paragraph("<b>Application</b>", styles["body"]), Paragraph("NexusBank AI", styles["body"])],
-        [Paragraph("<b>GitHub PR</b>", styles["body"]),
-         Paragraph("https://github.com/Sukhxdx/AI-EDU-ASSESEMENT/pull/12", styles["body"])],
     ]
     box = Table(sign, colWidths=[40 * mm, 130 * mm])
     box.setStyle(TableStyle([
