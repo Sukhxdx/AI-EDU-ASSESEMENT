@@ -76,7 +76,10 @@ def badge(text: str, kind: str) -> str:
 def page_home() -> None:
     cfg = ENG["cfg"]["app"]
     st.markdown(
-        f"<div class='hero'><h1>{cfg['name']}</h1><p>{cfg['tagline']}</p></div>",
+        f"<div class='hero'><h1>{cfg['name']}</h1>"
+        f"<p>{cfg['tagline']}</p>"
+        f"<p style='margin-top:0.55rem;color:#d7e4ee;font-size:0.95rem;'>"
+        f"<b>Student:</b> Sukhada Dhingra &nbsp;|&nbsp; <b>PRN:</b> 24070126505</p></div>",
         unsafe_allow_html=True,
     )
     tx = pd.read_csv(DATASET_DIR / "transactions.csv")
@@ -395,6 +398,12 @@ PAGES = {
 def main() -> None:
     st.sidebar.markdown("### NexusBank AI")
     st.sidebar.caption("Retail banking intelligence")
+    st.sidebar.markdown(
+        "<div style='margin:0.6rem 0 0.8rem;padding:0.65rem 0.75rem;border:1px solid #1f4b63;"
+        "border-radius:10px;background:rgba(18,50,74,0.45);font-size:0.86rem;'>"
+        "<b>Sukhada Dhingra</b><br/>PRN 24070126505</div>",
+        unsafe_allow_html=True,
+    )
     choice = st.sidebar.radio("Modules", list(PAGES), index=0)
     st.sidebar.markdown("---")
     st.sidebar.write("Config:", ENG["cfg"]["app"]["version"])

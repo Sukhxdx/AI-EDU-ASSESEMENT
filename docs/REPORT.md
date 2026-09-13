@@ -1,7 +1,11 @@
 # NexusBank AI: An Integrated Application of Machine Learning in Retail Banking Operations
 
-**Short report (assignment reference guide)**  
-Course outcomes addressed: CO3 (applied AI functions in a FinTech system), CO4 (communication of design, use and impact)
+**Student:** Sukhada Dhingra  
+**PRN:** 24070126505  
+
+**Submission PDF (report + screenshots):** [Sukhada_Dhingra_24070126505_NexusBank_AI_Report.pdf](./Sukhada_Dhingra_24070126505_NexusBank_AI_Report.pdf)
+
+Short report (assignment reference guide). Course outcomes addressed: CO3 (applied AI functions in a FinTech system), CO4 (communication of design, use and impact).
 
 ---
 

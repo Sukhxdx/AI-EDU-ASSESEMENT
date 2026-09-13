@@ -101,6 +101,12 @@ python src/train_models.py
 
 The short assignment report is [docs/REPORT.md](docs/REPORT.md). It covers need analysis, technical functionality, architecture, usage/scope and impact.
 
+**Submit this PDF** (name, PRN, report text, and screenshots of the running app):
+
+[docs/Sukhada_Dhingra_24070126505_NexusBank_AI_Report.pdf](docs/Sukhada_Dhingra_24070126505_NexusBank_AI_Report.pdf)
+
+Student: **Sukhada Dhingra** · PRN **24070126505**
+
 ## Disclaimer
 
 Outputs are educational. They are not a credit decision, investment advice, or a substitute for RBI/PMLA controls in a licensed bank.
