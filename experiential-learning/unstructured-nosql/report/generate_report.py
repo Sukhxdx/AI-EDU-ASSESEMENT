@@ -51,10 +51,6 @@ INSTITUTE = "Symbiosis Institute of Technology, Pune"
 UNIVERSITY = "Symbiosis International (Deemed University)"
 COURSE = "Big Data Analytics"
 TITLE = "Unstructured Data into a NoSQL Database"
-EMAIL = "dhingrasukhada@gmail.com"
-PHONE = "+91 83172 22120"
-SUBMISSION_DATE = "13 September 2026"
-AY = "2025–26"
 
 NAVY = HexColor("#0B1F3A")
 NAVY2 = HexColor("#16325C")
@@ -553,7 +549,7 @@ def header_footer(canvas, doc):
     canvas.rect(0, 12 * mm, w, 1.1 * mm, fill=1, stroke=0)
     canvas.setFillColor(white)
     canvas.setFont("DejaVu", 7.4)
-    canvas.drawString(16 * mm, 5 * mm, f"{INSTITUTE}  ·  {AY}")
+    canvas.drawString(16 * mm, 5 * mm, INSTITUTE)
     canvas.drawRightString(w - 16 * mm, 5 * mm, f"Page {doc.page}")
     canvas.restoreState()
 
@@ -595,25 +591,23 @@ def cover_page(canvas, doc):
     canvas.setFillColor(HexColor("#D7DEEA"))
     canvas.drawString(36 * mm, y - 2 * mm, "Big Data Analytics  —  MongoDB on Ubuntu 24.04")
 
-    box_y = 70 * mm
+    box_h = 64 * mm
+    box_y = 78 * mm
     canvas.setFillColor(HexColor("#122744"))
-    canvas.roundRect(36 * mm, box_y, w - 58 * mm, 88 * mm, 6, fill=1, stroke=0)
+    canvas.roundRect(36 * mm, box_y, w - 58 * mm, box_h, 6, fill=1, stroke=0)
     canvas.setFillColor(GOLD)
-    canvas.rect(36 * mm, box_y + 88 * mm - 3, w - 58 * mm, 3, fill=1, stroke=0)
+    canvas.rect(36 * mm, box_y + box_h - 3, w - 58 * mm, 3, fill=1, stroke=0)
     canvas.setFillColor(white)
     canvas.setFont("DejaVuBold", 10)
-    canvas.drawString(44 * mm, box_y + 74 * mm, "STUDENT DETAILS  (for official submission)")
+    canvas.drawString(44 * mm, box_y + 50 * mm, "STUDENT DETAILS  (for official submission)")
     info = [
         ("Name", STUDENT_NAME),
         ("PRN", STUDENT_PRN),
         ("Batch", STUDENT_BATCH),
         ("Programme", "B.Tech. AIML"),
         ("Course / Paper", COURSE),
-        ("Academic Year", AY),
-        ("Date of Submission", SUBMISSION_DATE),
-        ("Email", EMAIL),
     ]
-    yy = box_y + 60 * mm
+    yy = box_y + 36 * mm
     for k, v in info:
         canvas.setFillColor(GOLD)
         canvas.setFont("DejaVu", 8)
@@ -655,7 +649,7 @@ def build_pdf(diagrams, shots, stats):
         f"I, <b>{STUDENT_NAME}</b>, PRN <b>{STUDENT_PRN}</b>, Batch <b>{STUDENT_BATCH}</b>, "
         f"student of {PROGRAMME} at {INSTITUTE}, constituent of {UNIVERSITY}, hereby declare that "
         f"the work presented in this laboratory report titled “{TITLE}” is my original work carried "
-        f"out as part of the course <b>{COURSE}</b> during the academic year {AY}. MongoDB Community "
+        f"out as part of the course <b>{COURSE}</b>. MongoDB Community "
         f"Server 8.0.32 was installed and run on <b>Ubuntu 24.04.4 LTS</b>. Three hundred unstructured "
         f"JSON review documents were imported with <font face='DejaVuMono'>mongoimport</font>, and "
         f"CRUD plus aggregation queries were executed in <font face='DejaVuMono'>mongosh</font>. "
@@ -675,7 +669,7 @@ def build_pdf(diagrams, shots, stats):
             [
                 Paragraph(
                     f"<b>Student</b><br/>{STUDENT_NAME}<br/>PRN: {STUDENT_PRN}<br/>Batch: {STUDENT_BATCH}"
-                    f"<br/>Date: {SUBMISSION_DATE}<br/>Signature: _______________",
+                    f"<br/>Signature: _______________",
                     ParagraphStyle("s", fontName="DejaVu", fontSize=9, leading=13, textColor=NAVY),
                 ),
                 Paragraph(
@@ -1048,7 +1042,7 @@ def build_pdf(diagrams, shots, stats):
     story.append(Spacer(1, 8 * mm))
     story.append(p(
         f"— End of report —<br/>Submitted by <b>{STUDENT_NAME}</b>  ·  PRN {STUDENT_PRN}  ·  "
-        f"Batch {STUDENT_BATCH}  ·  {SUBMISSION_DATE}",
+        f"Batch {STUDENT_BATCH}",
         ss["CenterSmall"],
     ))
 
