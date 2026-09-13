@@ -1,0 +1,499 @@
+$ mongosh mongodb://127.0.0.1:27017 --file scripts/queries.js
+
+==== 0. server identity ====
+{
+  host: 'cursor',
+  os: 'Ubuntu 24.04',
+  db_version: '8.0.32',
+  student: 'Sukhada Dhingra',
+  prn: '24070126505',
+  batch: 'A3'
+}
+
+==== 1. database + collection (created before mongoimport) ====
+{
+  database: 'sit_bda',
+  collections: [
+    'product_reviews'
+  ],
+  validator_note: 'JSON Schema requires review_id, product, rating, body only — extra fields stay allowed.'
+}
+
+==== 2. counts after mongoimport ====
+documents = 300
+indexes:
+[
+  {
+    v: 2,
+    key: {
+      _id: 1
+    },
+    name: '_id_'
+  }
+]
+
+==== 3. one sample document (pretty) — nested + optional fields ====
+{
+  review_id: 'REV-0002',
+  captured_at: '2026-03-19T07:05:00+05:30',
+  channel: 'android-app',
+  product: {
+    sku: 'BK-1022',
+    name: 'Introduction to Big Data',
+    brand: 'SIT Press',
+    category: 'books'
+  },
+  customer: {
+    handle: 'neha_pune',
+    city: 'Chennai'
+  },
+  rating: 2,
+  body: 'Headphones pairing on Android was instant. iOS needed a reset once.',
+  language: 'en',
+  title: 'Would buy again',
+  tags: [
+    'gift',
+    'return'
+  ],
+  helpful_votes: 20,
+  ingest_meta: {
+    source_file: 'dump_20260319.json',
+    parser: 'reviews-etl-v3',
+    malformed_keys_dropped: 3
+  }
+}
+
+==== 4. schema-less proof — distinct top-level keys ====
+[
+  {
+    _id: 'body',
+    n: 300
+  },
+  {
+    _id: 'captured_at',
+    n: 300
+  },
+  {
+    _id: '_id',
+    n: 300
+  },
+  {
+    _id: 'rating',
+    n: 300
+  },
+  {
+    _id: 'language',
+    n: 300
+  },
+  {
+    _id: 'channel',
+    n: 300
+  },
+  {
+    _id: 'customer',
+    n: 300
+  },
+  {
+    _id: 'product',
+    n: 300
+  },
+  {
+    _id: 'review_id',
+    n: 300
+  },
+  {
+    _id: 'tags',
+    n: 237
+  },
+  {
+    _id: 'title',
+    n: 216
+  },
+  {
+    _id: 'helpful_votes',
+    n: 132
+  },
+  {
+    _id: 'media',
+    n: 60
+  },
+  {
+    _id: 'raw_payload_excerpt',
+    n: 44
+  },
+  {
+    _id: 'seller_reply',
+    n: 30
+  },
+  {
+    _id: 'ingest_meta',
+    n: 27
+  },
+  {
+    _id: 'return_reason',
+    n: 5
+  }
+]
+compact:
+field                n    present
+-------------------  ---  -------
+body                 300  100%   
+captured_at          300  100%   
+_id                  300  100%   
+rating               300  100%   
+language             300  100%   
+channel              300  100%   
+customer             300  100%   
+product              300  100%   
+review_id            300  100%   
+tags                 237  79%    
+title                216  72%    
+helpful_votes        132  44%    
+media                60   20%    
+raw_payload_excerpt  44   15%    
+seller_reply         30   10%    
+ingest_meta          27   9%     
+return_reason        5    2%     
+
+==== 5. CRUD — insertOne with extra nested junk a RDBMS would reject ====
+{
+  acknowledged: true,
+  insertedId: ObjectId('6aa70358cf0f2487af10f604')
+}
+count after insert = 301
+
+==== 6. CRUD — find (filter + projection), like SQL WHERE + SELECT cols ====
+electronics, rating >= 4, first 3 (projection hides _id and body):
+[
+  {
+    review_id: 'REV-0011',
+    product: {
+      name: 'USB-C power bank 20000mAh'
+    },
+    customer: {
+      city: 'Delhi'
+    },
+    rating: 4,
+    title: 'Battery life is the story'
+  },
+  {
+    review_id: 'REV-0012',
+    product: {
+      name: 'USB-C power bank 20000mAh'
+    },
+    customer: {
+      city: 'Hyderabad'
+    },
+    rating: 5
+  },
+  {
+    review_id: 'REV-0015',
+    product: {
+      name: 'Noise-cancelling headphones'
+    },
+    customer: {
+      city: 'Delhi'
+    },
+    rating: 4,
+    title: 'Exceeded expectations'
+  }
+]
+
+==== 7. CRUD — updateOne ====
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+{
+  review_id: 'REV-LAB-INSERT',
+  captured_at: '2026-09-13T20:15:00+05:30',
+  channel: 'lab-terminal',
+  product: {
+    sku: 'LAB-0001',
+    name: 'MongoDB lab checklist',
+    brand: 'SIT-AIML',
+    category: 'books',
+    extra_unstructured: {
+      printed: false,
+      url: 'file://queries.js'
+    }
+  },
+  customer: {
+    handle: 'sukhada',
+    city: 'Pune',
+    verified_purchase: true,
+    prn: '24070126505'
+  },
+  rating: 5,
+  title: 'Inserted during the Ubuntu lab',
+  tags: [
+    'lab',
+    'nosql',
+    'mongodb',
+    'batch-a3'
+  ],
+  language: 'en',
+  viva_note: 'No ALTER TABLE was required to add viva_note, tags or nested extra_unstructured.',
+  faculty_flag: 'ready-for-viva',
+  helpful_votes: 1,
+  lab_verified: true
+}
+
+==== 8. CRUD — deleteOne ====
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+count after delete = 300
+
+==== 9. count / sort / limit / skip ====
+total = 300
+rating == 1 count = 16
+sort by rating desc, skip 5, limit 5:
+[
+  {
+    review_id: 'REV-0020',
+    product: {
+      name: 'Wireless mouse'
+    },
+    rating: 5
+  },
+  {
+    review_id: 'REV-0022',
+    product: {
+      name: 'Vitamin C serum'
+    },
+    rating: 5
+  },
+  {
+    review_id: 'REV-0026',
+    product: {
+      name: 'USB-C power bank 20000mAh'
+    },
+    rating: 5
+  },
+  {
+    review_id: 'REV-0027',
+    product: {
+      name: 'SPF 50 sunscreen'
+    },
+    rating: 5
+  },
+  {
+    review_id: 'REV-0029',
+    product: {
+      name: 'NoSQL Distilled'
+    },
+    rating: 5
+  }
+]
+
+==== 10. aggregation — reviews and average rating by category ====
+[
+  {
+    n_reviews: 81,
+    min_rating: 1,
+    max_rating: 5,
+    category: 'electronics',
+    avg_rating: 3.84
+  },
+  {
+    n_reviews: 54,
+    min_rating: 1,
+    max_rating: 5,
+    category: 'clothing',
+    avg_rating: 3.74
+  },
+  {
+    n_reviews: 54,
+    min_rating: 1,
+    max_rating: 5,
+    category: 'grocery',
+    avg_rating: 3.81
+  },
+  {
+    n_reviews: 47,
+    min_rating: 2,
+    max_rating: 5,
+    category: 'books',
+    avg_rating: 3.85
+  },
+  {
+    n_reviews: 42,
+    min_rating: 1,
+    max_rating: 5,
+    category: 'beauty',
+    avg_rating: 3.83
+  },
+  {
+    n_reviews: 22,
+    min_rating: 1,
+    max_rating: 5,
+    category: 'home',
+    avg_rating: 3.45
+  }
+]
+compact:
+category     n   avg   min  max
+-----------  --  ----  ---  ---
+electronics  81  3.84  1    5  
+clothing     54  3.74  1    5  
+grocery      54  3.81  1    5  
+books        47  3.85  2    5  
+beauty       42  3.83  1    5  
+home         22  3.45  1    5  
+
+==== 11. aggregation — $match Pune + $group by brand ====
+[
+  {
+    n: 6,
+    brand: 'IndigoYard',
+    avg_rating: 3.67
+  },
+  {
+    n: 6,
+    brand: 'SonicPulse',
+    avg_rating: 3.67
+  },
+  {
+    n: 6,
+    brand: 'VoltNest',
+    avg_rating: 3.5
+  },
+  {
+    n: 5,
+    brand: 'DataCraft',
+    avg_rating: 3.2
+  },
+  {
+    n: 4,
+    brand: 'HearthCo',
+    avg_rating: 3.75
+  },
+  {
+    n: 4,
+    brand: 'Clickora',
+    avg_rating: 4.25
+  }
+]
+
+==== 12. aggregation — unwind tags (array) and rank topics ====
+[
+  {
+    n: 42,
+    tag: 'loud'
+  },
+  {
+    n: 39,
+    tag: 'fading'
+  },
+  {
+    n: 37,
+    tag: 'fit'
+  },
+  {
+    n: 36,
+    tag: 'travel'
+  },
+  {
+    n: 35,
+    tag: 'ubuntu'
+  },
+  {
+    n: 34,
+    tag: 'gift'
+  },
+  {
+    n: 33,
+    tag: 'sizing'
+  },
+  {
+    n: 33,
+    tag: 'delivery'
+  }
+]
+
+==== 13. aggregation — rating histogram + low-star returns ====
+{
+  histogram: [
+    {
+      n: 16,
+      rating: 1
+    },
+    {
+      n: 27,
+      rating: 2
+    },
+    {
+      n: 65,
+      rating: 3
+    },
+    {
+      n: 88,
+      rating: 4
+    },
+    {
+      n: 104,
+      rating: 5
+    }
+  ],
+  with_return_reason: [
+    {
+      n: 5
+    }
+  ],
+  with_seller_reply: [
+    {
+      n: 30
+    }
+  ],
+  with_media: [
+    {
+      n: 60
+    }
+  ]
+}
+compact histogram:
+rating  n  
+------  ---
+1       16 
+2       27 
+3       65 
+4       88 
+5       104
+optional fields: return_reason=5  seller_reply=30  media=60
+
+==== 14. text-ish scan — Ubuntu mentioned in unstructured body ====
+[
+  {
+    review_id: 'REV-0014',
+    product: {
+      name: 'Cold-pressed coconut oil 1L'
+    },
+    rating: 1,
+    body: 'Mouse stuttered on Ubuntu 24.04 until I switched the USB receiver to a front port.'
+  },
+  {
+    review_id: 'REV-0016',
+    product: {
+      name: 'NoSQL Distilled'
+    },
+    rating: 5,
+    body: 'Mouse stuttered on Ubuntu 24.04 until I switched the USB receiver to a front port.'
+  },
+  {
+    review_id: 'REV-0020',
+    product: {
+      name: 'Wireless mouse'
+    },
+    rating: 5,
+    body: 'Mouse stuttered on Ubuntu 24.04 until I switched the USB receiver to a front port.'
+  }
+]
+
+==== 15. done ====
+database = sit_bda  collection = product_reviews
+Sukhada Dhingra | PRN 24070126505 | Batch A3 | Ubuntu MongoDB lab complete.

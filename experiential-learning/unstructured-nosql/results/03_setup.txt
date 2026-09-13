@@ -1,0 +1,60 @@
+$ mongosh mongodb://127.0.0.1:27017 --file scripts/setup.js
+{
+  database: 'sit_bda',
+  collection: 'product_reviews',
+  created: {
+    ok: 1
+  },
+  note: 'JSON Schema requires four fields only; extra nested keys are allowed.'
+}
+[
+  {
+    name: 'product_reviews',
+    type: 'collection',
+    options: {
+      validator: {
+        '$jsonSchema': {
+          bsonType: 'object',
+          required: [
+            'review_id',
+            'product',
+            'rating',
+            'body'
+          ],
+          properties: {
+            review_id: {
+              bsonType: 'string'
+            },
+            rating: {
+              bsonType: [
+                'int',
+                'double',
+                'long'
+              ],
+              minimum: 1,
+              maximum: 5
+            },
+            product: {
+              bsonType: 'object'
+            },
+            body: {
+              bsonType: 'string'
+            }
+          },
+          additionalProperties: true
+        }
+      }
+    },
+    info: {
+      readOnly: false,
+      uuid: UUID('6deac439-03e4-4531-94d2-1c13482fea6c')
+    },
+    idIndex: {
+      v: 2,
+      key: {
+        _id: 1
+      },
+      name: '_id_'
+    }
+  }
+]

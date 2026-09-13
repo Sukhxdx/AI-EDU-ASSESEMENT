@@ -1,0 +1,21 @@
+$ mongod --version | head -4
+db version v8.0.32
+Build Info: {
+    "version": "8.0.32",
+    "gitVersion": "f9eb55a7cc900f33a722a5b32a0fdbf54385c749",
+
+$ mongosh --version
+2.10.0
+
+$ mongoimport --version | head -1
+mongoimport version: 100.18.0
+
+$ lsb_release -d && uname -srm
+Description:	Ubuntu 24.04.4 LTS
+Linux 6.12.94+ x86_64
+
+$ mongosh --quiet --eval 'db.runCommand({ping:1})'
+{
+  ok: 1
+}
+db.version() = 8.0.32

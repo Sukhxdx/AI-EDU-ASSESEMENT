@@ -1,0 +1,18 @@
+wrote 300 documents → /workspace/experiential-learning/unstructured-nosql/dataset/product_reviews.jsonl
+field presence (schema-less):
+  review_id              300/300  (100%)
+  captured_at            300/300  (100%)
+  channel                300/300  (100%)
+  product                300/300  (100%)
+  customer               300/300  (100%)
+  rating                 300/300  (100%)
+  body                   300/300  (100%)
+  language               300/300  (100%)
+  tags                   237/300  (79%)
+  title                  216/300  (72%)
+  helpful_votes          132/300  (44%)
+  media                   60/300  (20%)
+  raw_payload_excerpt     44/300  (15%)
+  seller_reply            30/300  (10%)
+  ingest_meta             27/300  (9%)
+  return_reason            5/300  (2%)

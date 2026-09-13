@@ -1,0 +1,59 @@
+$ python3 - <<'PY'   # pretty-print first two JSONL records
+--- document 1 ---
+{
+  "review_id": "REV-0001",
+  "captured_at": "2026-06-28T03:14:00+05:30",
+  "channel": "web",
+  "product": {
+    "sku": "CL-7720",
+    "name": "Running shorts",
+    "brand": "PaceForm",
+    "category": "clothing"
+  },
+  "customer": {
+    "handle": "ananya_fit",
+    "city": "Bengaluru"
+  },
+  "rating": 1,
+  "body": "Sunscreen pills on the nose. Fine for office AC, not for a noon cricket match.",
+  "language": "mr",
+  "title": "Exceeded expectations",
+  "helpful_votes": 14,
+  "media": [
+    {
+      "type": "image",
+      "n": 3
+    }
+  ],
+  "return_reason": "late-delivery"
+}
+--- document 2 ---
+{
+  "review_id": "REV-0002",
+  "captured_at": "2026-03-19T07:05:00+05:30",
+  "channel": "android-app",
+  "product": {
+    "sku": "BK-1022",
+    "name": "Introduction to Big Data",
+    "brand": "SIT Press",
+    "category": "books"
+  },
+  "customer": {
+    "handle": "neha_pune",
+    "city": "Chennai"
+  },
+  "rating": 2,
+  "body": "Headphones pairing on Android was instant. iOS needed a reset once.",
+  "language": "en",
+  "title": "Would buy again",
+  "tags": [
+    "gift",
+    "return"
+  ],
+  "helpful_votes": 20,
+  "ingest_meta": {
+    "source_file": "dump_20260319.json",
+    "parser": "reviews-etl-v3",
+    "malformed_keys_dropped": 3
+  }
+}

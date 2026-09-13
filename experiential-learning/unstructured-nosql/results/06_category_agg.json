@@ -1,0 +1,32 @@
+[
+  {
+    n: 81,
+    category: 'electronics',
+    avg: 3.84
+  },
+  {
+    n: 54,
+    category: 'clothing',
+    avg: 3.74
+  },
+  {
+    n: 54,
+    category: 'grocery',
+    avg: 3.81
+  },
+  {
+    n: 47,
+    category: 'books',
+    avg: 3.85
+  },
+  {
+    n: 42,
+    category: 'beauty',
+    avg: 3.83
+  },
+  {
+    n: 22,
+    category: 'home',
+    avg: 3.45
+  }
+]
