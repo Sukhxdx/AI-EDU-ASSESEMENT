@@ -592,7 +592,7 @@ def cover_page(canvas, doc):
     canvas.drawString(36 * mm, y - 2 * mm, "Big Data Analytics  —  MongoDB on Ubuntu 24.04")
 
     box_h = 64 * mm
-    box_y = 78 * mm
+    box_y = 48 * mm
     canvas.setFillColor(HexColor("#122744"))
     canvas.roundRect(36 * mm, box_y, w - 58 * mm, box_h, 6, fill=1, stroke=0)
     canvas.setFillColor(GOLD)
@@ -617,13 +617,6 @@ def cover_page(canvas, doc):
         canvas.drawString(88 * mm, yy, v)
         yy -= 6.6 * mm
 
-    canvas.setFillColor(HexColor("#C5D0E0"))
-    canvas.setFont("DejaVu", 8)
-    canvas.drawString(36 * mm, 28 * mm, "MongoDB Community 8.0.32  ·  mongosh 2.10.0  ·  Ubuntu 24.04.4 LTS")
-    canvas.drawString(36 * mm, 22 * mm, "300 unstructured product-review documents  |  CRUD + aggregation pipeline")
-    canvas.setFillColor(GOLD)
-    canvas.setFont("DejaVu", 8)
-    canvas.drawString(36 * mm, 14 * mm, "Confidential academic submission  ·  original work of the student named above")
     canvas.restoreState()
 
 
@@ -663,36 +656,6 @@ def build_pdf(diagrams, shots, stats):
         "summarised, and that no part of this report has been submitted elsewhere for academic credit.",
         ss["Decl"],
     ))
-    story.append(Spacer(1, 8 * mm))
-    sign = Table(
-        [
-            [
-                Paragraph(
-                    f"<b>Student</b><br/>{STUDENT_NAME}<br/>PRN: {STUDENT_PRN}<br/>Batch: {STUDENT_BATCH}"
-                    f"<br/>Signature: _______________",
-                    ParagraphStyle("s", fontName="DejaVu", fontSize=9, leading=13, textColor=NAVY),
-                ),
-                Paragraph(
-                    "<b>Course Faculty</b><br/>Name: _______________________<br/>Designation: ________________"
-                    "<br/>Date: _______________________<br/>Signature: _______________",
-                    ParagraphStyle("s2", fontName="DejaVu", fontSize=9, leading=13, textColor=NAVY),
-                ),
-            ]
-        ],
-        colWidths=[85 * mm, 85 * mm],
-    )
-    sign.setStyle(TableStyle([
-        ("BOX", (0, 0), (0, 0), 0.5, NAVY),
-        ("BOX", (1, 0), (1, 0), 0.5, NAVY),
-        ("BACKGROUND", (0, 0), (-1, -1), LIGHT),
-        ("VALIGN", (0, 0), (-1, -1), "TOP"),
-        ("LEFTPADDING", (0, 0), (-1, -1), 8),
-        ("RIGHTPADDING", (0, 0), (-1, -1), 8),
-        ("TOPPADDING", (0, 0), (-1, -1), 8),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 8),
-    ]))
-    story.append(sign)
-    story.append(Spacer(1, 6 * mm))
 
     story.append(p("2. Abstract", ss["H1"]))
     story.append(p(
