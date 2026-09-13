@@ -1,138 +1,112 @@
-# AI Edu Assessment - RAG-Powered Learning Platform
+# NexusBank AI
 
-A comprehensive educational assessment platform that uses Retrieval-Augmented Generation (RAG) to generate quizzes and answer questions from PDF documents. Built with FastAPI backend and React Native mobile app.
+AI-assisted retail banking operations desk: fraud scoring, credit underwriting, AML screening, KYC intake, a customer copilot, spend categorisation, news sentiment, a robo-advisor, and an origination agent that chains those tools.
 
-## 🎯 Features
+This repository is the working software and short report for a FinTech assignment focused on **AI in banking and finance** (Units 3 and 4). It is a **simulator**. It does not connect to a live core-banking system.
 
-- **PDF Ingestion**: Upload and process research papers, textbooks, and educational documents
-- **Question Answering**: Ask questions about ingested documents with AI-powered answers
-- **Quiz Generation**: Automatically generate multiple-choice quiz questions from document content
-- **Vector Search**: Uses Pinecone for semantic search with 1024-dimensional embeddings
-- **Mobile-First**: Beautiful React Native app for iOS and Android
-
-## 🏗️ Architecture
+## Repository layout
 
 ```
-┌─────────────┐         ┌──────────────┐         ┌─────────────┐
-│  Mobile App │────────▶│  FastAPI     │────────▶│  Pinecone   │
-│  (Expo)     │         │  Backend     │         │  Vector DB  │
-└─────────────┘         └──────────────┘         └─────────────┘
-                               │
-                               ├────────▶ Gemini API (Answer Generation)
-                               │
-                               └────────▶ SentenceTransformers (Embeddings)
+README.md
+requirements.txt
+Dockerfile
+docker-compose.yml
+config/settings.yaml
+dataset/                 # synthetic CSVs + generator
+docs/REPORT.md           # short report (need, functions, architecture, usage, impact)
+examples/                # command-line walkthroughs
+models/                  # trained sklearn artifacts (created by training)
+src/                     # application code
+tests/                   # pytest suite
 ```
 
-## 📁 Project Structure
+## What the modules do
 
+| Module | AI approach | Banking job |
+| --- | --- | --- |
+| Fraud Sentinel | Isolation Forest + policy rules | Card / UPI anomaly scoring |
+| Credit Underwriting | Gradient boosting PD model | Personal-loan grade and decision |
+| AML Watch | Typology scoring | Structuring, rapid in-out, geo-risk |
+| Customer Copilot | TF-IDF + logistic regression | Intent detection for retail chat |
+| KYC Intake | Text classifier + regex fields | PAN / Aadhaar / passport typing |
+| Spend Insights | Character n-gram classifier | Merchant-string categories |
+| Market Pulse | TF-IDF sentiment + lexicon | Financial headline tone |
+| Robo-Advisor | Risk score + K-Means clusters | SIP sleeve (equity, debt, gold, liquid) |
+| Loan Origination Agent | Tool-using workflow | KYC → credit → fraud → AML memo |
+
+## Quick start
+
+Python 3.10+ is enough. No cloud API keys are required.
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+python dataset/generate_data.py
+python src/train_models.py
 ```
-AI_Edu_Assessment/
-├── backend/                 # FastAPI backend
-│   ├── main.py             # API endpoints
-│   ├── modules/            # Core modules
-│   │   ├── rag.py         # RAG pipeline (main logic)
-│   │   ├── db.py          # SQLite database
-│   │   └── ...
-│   ├── requirements.txt    # Python dependencies
-│   └── data/              # SQLite database storage
-│
-├── mobile/                 # React Native app (Expo)
-│   ├── App.tsx            # Main app component
-│   ├── package.json       # Node dependencies
-│   └── ...
-│
-└── documentation/          # Detailed documentation
-    ├── ARCHITECTURE.md    # System architecture
-    ├── RAG_PIPELINE.md    # RAG pipeline details
-    └── API_REFERENCE.md   # API documentation
+
+### Operations console (Streamlit)
+
+```bash
+PYTHONPATH=src streamlit run src/app.py
 ```
 
-## 🚀 Quick Start
+Open http://localhost:8501. Use the sidebar to move between modules. Each screen accepts a live input; Fraud Sentinel and the origination agent also have canned scenarios.
 
-### Prerequisites
+### HTTP API (FastAPI)
 
-- Python 3.10+
-- Node.js 18+
-- Pinecone account (free tier available)
-- Gemini API key (optional but recommended)
+```bash
+PYTHONPATH=src uvicorn api:app --app-dir src --host 0.0.0.0 --port 8000
+```
 
-### Backend Setup
+Docs: http://localhost:8000/docs
 
-1. **Install dependencies:**
-   ```bash
-   cd backend
-   pip install -r requirements.txt
-   ```
+```bash
+curl -s http://localhost:8000/health
+curl -s -X POST http://localhost:8000/chat \
+  -H 'Content-Type: application/json' \
+  -d '{"text":"block my debit card"}'
+```
 
-2. **Set environment variables** (create `backend/.env`):
-   ```env
-   PINECONE_API_KEY=your_pinecone_key
-   GEMINI_API_KEY=your_gemini_key
-   PINECONE_INDEX=nlp
-   DB_PATH=data/projects.db
-   ```
+### Tests and examples
 
-3. **Start the server:**
-   ```bash
-   uvicorn main:app --host 0.0.0.0 --port 8000
-   ```
+```bash
+PYTHONPATH=src pytest
+python examples/score_fraud.py
+python examples/originate_loan.py
+python examples/chat_session.py
+python examples/robo_sip.py
+```
 
-### Mobile App Setup
+### Docker
 
-1. **Install dependencies:**
-   ```bash
-   cd mobile
-   npm install
-   ```
+```bash
+docker compose up --build console
+# API on the side:
+docker compose up --build api
+```
 
-2. **Set backend URL:**
-   ```bash
-   # For iOS simulator
-   set EXPO_PUBLIC_BACKEND_URL=http://127.0.0.1:8000
-   
-   # For real device (replace with your PC IP)
-   set EXPO_PUBLIC_BACKEND_URL=http://192.168.1.22:8000
-   ```
+## Configuration
 
-3. **Start Expo:**
-   ```bash
-   npx expo start --tunnel
-   ```
+Thresholds live in `config/settings.yaml` (fraud cut-offs, PD bands, AML amounts, KYC accept list, SIP floors). Retrain after data changes:
 
-4. **Scan QR code** with Expo Go app on your phone
+```bash
+python dataset/generate_data.py
+python src/train_models.py
+```
 
-## 📚 Documentation
+## Report
 
-See the [documentation/](./documentation/) folder for detailed information:
+The short assignment report is [docs/REPORT.md](docs/REPORT.md). It covers need analysis, technical functionality, architecture, usage/scope and impact.
 
-- [Architecture Overview](./documentation/ARCHITECTURE.md)
-- [RAG Pipeline Details](./documentation/RAG_PIPELINE.md)
-- [API Reference](./documentation/API_REFERENCE.md)
-- [Deployment Guide](./documentation/DEPLOYMENT.md)
+**Submit this PDF** (name, PRN, report text, and screenshots of the running app):
 
-## 🔧 API Endpoints
+[docs/Sukhada_Dhingra_24070126505_NexusBank_AI_Report.pdf](docs/Sukhada_Dhingra_24070126505_NexusBank_AI_Report.pdf)
 
-### RAG Endpoints
+Student: **Sukhada Dhingra** · PRN **24070126505**
 
-- `POST /rag/ingest` - Ingest PDF from URL
-- `POST /rag/query` - Ask questions about ingested documents
-- `POST /rag/quiz` - Generate quiz questions
+## Disclaimer
 
-See [API_REFERENCE.md](./documentation/API_REFERENCE.md) for full details.
-
-## 🛠️ Technology Stack
-
-- **Backend**: FastAPI, Python
-- **Vector DB**: Pinecone (1024-dim embeddings)
-- **Embeddings**: SentenceTransformers (e5-large-v2)
-- **LLM**: Google Gemini 2.0 Flash / 1.5 Flash
-- **Mobile**: React Native (Expo SDK 54)
-- **Database**: SQLite
-
-## 📝 License
-
-MIT License
-
-## 🤝 Contributing
-
-Contributions welcome! Please read the documentation first.
+Outputs are educational. They are not a credit decision, investment advice, or a substitute for RBI/PMLA controls in a licensed bank.

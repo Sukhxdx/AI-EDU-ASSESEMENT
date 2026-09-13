@@ -1,0 +1,57 @@
+app:
+  name: NexusBank AI
+  version: "1.0.0"
+  tagline: AI intelligence layer for retail banking operations
+  currency: INR
+
+fraud:
+  contamination: 0.07
+  high_risk_score: 70
+  review_score: 45
+  night_hours: [0, 1, 2, 3, 4, 5]
+  international_amount_flag: 40000
+  velocity_flag: 6
+
+credit:
+  approve_pd_max: 0.18
+  review_pd_max: 0.42
+  max_dti: 0.50
+  grades:
+    A: 0.08
+    B: 0.18
+    C: 0.30
+    D: 0.42
+    E: 1.00
+
+aml:
+  structuring_threshold: 499000
+  structuring_window_count: 3
+  high_risk_countries: ["CY", "PA", "VG", "KY", "AE"]
+  rapid_turnover_hours: 6
+  alert_score: 65
+
+chatbot:
+  confidence_min: 0.22
+  fallback_intent: fallback
+
+kyc:
+  accept_types: ["aadhaar", "pan", "passport", "driving_license"]
+  min_confidence: 0.40
+
+spend:
+  budget_alert_share: 0.35
+
+sentiment:
+  positive_cut: 0.20
+  negative_cut: -0.20
+
+robo:
+  equity_cap: 0.80
+  debt_floor: 0.15
+  gold_cap: 0.15
+  liquid_floor: 0.05
+
+agent:
+  auto_approve_pd_max: 0.15
+  auto_reject_pd_min: 0.48
+  require_kyc_pass: true
