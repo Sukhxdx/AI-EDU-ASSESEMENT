@@ -205,14 +205,6 @@ def build() -> Path:
         ("BOTTOMPADDING", (0, 0), (-1, -1), 6),
     ]))
     story.append(table)
-    story.append(Spacer(1, 16 * mm))
-    story.append(Paragraph(
-        "This PDF is the short report required by the assignment: need analysis, "
-        "technical functionality, architecture, usage/scope, impact, and original "
-        "screenshots of the running software. The application is a simulator trained "
-        "on synthetic Indian retail-banking data. It is not a live bank system.",
-        styles["cover_sub"],
-    ))
     story.append(PageBreak())
 
     # From page 2 onward, body uses dark text; cover used white text.
