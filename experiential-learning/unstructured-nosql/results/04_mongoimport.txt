@@ -1,0 +1,3 @@
+$ mongoimport --uri mongodb://127.0.0.1:27017 --db sit_bda --collection product_reviews --file dataset/product_reviews.jsonl
+2026-09-13T20:11:03.948+0000	connected to: mongodb://127.0.0.1:27017
+2026-09-13T20:11:03.955+0000	300 document(s) imported successfully. 0 document(s) failed to import.
